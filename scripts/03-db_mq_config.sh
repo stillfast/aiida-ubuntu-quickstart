@@ -295,28 +295,50 @@ check_rabbitmq_running() {
 
 setup_rabbitmq() {
     local rabbitmq_version="${CONFIG_VARS[RABBITMQ_VERSION]}"
+    local env_name="${CONFIG_VARS[CONDA_ENV_NAME]}"
     
     if check_rabbitmq_installed; then
+        echo "RabbitMQ is already installed"
         return 0
     fi
     
     echo "Installing RabbitMQ $rabbitmq_version via conda..."
     
     local conda_sh="$(conda info --base)/etc/profile.d/conda.sh"
-    source "$conda_sh"
-    conda activate "${CONFIG_VARS[CONDA_ENV_NAME]}"
+    if [[ ! -f "$conda_sh" ]]; then
+        echo "ERROR: Conda initialization script not found at $conda_sh" >&2
+        return 1
+    fi
     
-    conda install -c conda-forge::rabbitmq-server=="$rabbitmq_version" -y
-    if [[ $? -ne 0 ]]; then
-        conda install -c conda-forge rabbitmq-server -y
-        if [[ $? -ne 0 ]]; then
-            echo "ERROR: Failed to install RabbitMQ" >&2
-            conda deactivate 2>/dev/null || true
+    source "$conda_sh"
+    
+    if ! conda env list 2>/dev/null | grep -q "^$env_name "; then
+        echo "ERROR: Conda environment '$env_name' does not exist" >&2
+        return 1
+    fi
+    
+    conda install -n "$env_name" -c conda-forge::rabbitmq-server="$rabbitmq_version" -y
+    local install_status=$?
+    
+    if [[ $install_status -ne 0 ]]; then
+        echo "WARNING: Failed to install specific version $rabbitmq_version, trying without version constraint..." >&2
+        conda install -n "$env_name" -c conda-forge rabbitmq-server -y
+        install_status=$?
+        
+        if [[ $install_status -ne 0 ]]; then
+            echo "ERROR: Failed to install RabbitMQ via conda" >&2
+            echo "Please try installing manually: conda install -n $env_name -c conda-forge rabbitmq-server" >&2
             return 1
         fi
     fi
     
-    conda deactivate 2>/dev/null || true
+    sleep 2
+    
+    if ! check_rabbitmq_installed; then
+        echo "ERROR: RabbitMQ installation completed but command not found in PATH" >&2
+        return 1
+    fi
+    
     echo "RabbitMQ setup completed successfully"
     return 0
 }
