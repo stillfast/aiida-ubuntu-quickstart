@@ -4,6 +4,41 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "${SCRIPT_DIR}/01-env_loader.sh"
 
+# ==============================================================================
+# Logging Configuration
+# ==============================================================================
+TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+LOG_DIR="${SCRIPT_DIR}/../logs"
+LOG_FILE="${LOG_DIR}/aiida_setup_${TIMESTAMP}.log"
+
+init_logging() {
+    if [[ ! -d "$LOG_DIR" ]]; then
+        mkdir -p "$LOG_DIR"
+    fi
+    
+    exec > >(tee -a "$LOG_FILE") 2>&1
+    
+    echo "================================================================================"
+    echo "AiiDA Setup Log - $(date '+%Y-%m-%d %H:%M:%S')"
+    echo "Log file: $LOG_FILE"
+    echo "================================================================================"
+    echo ""
+}
+
+log_section() {
+    echo ""
+    echo "=== $1 ==="
+    echo ""
+}
+
+log_subsection() {
+    echo ""
+    echo "--- $1 ---"
+    echo ""
+}
+
+init_logging
+
 check_postgres_installed() {
     if command -v psql &> /dev/null; then
         return 0
@@ -343,17 +378,83 @@ setup_rabbitmq() {
     return 0
 }
 
+start_rabbitmq_service() {
+    log_subsection "Starting RabbitMQ Service"
+    
+    if check_rabbitmq_running; then
+        echo "RabbitMQ service is already running"
+        return 0
+    fi
+    
+    local env_name="${CONFIG_VARS[CONDA_ENV_NAME]}"
+    local rabbitmq_data_dir="${SCRIPT_DIR}/../data/rabbitmq"
+    local rabbitmq_log_dir="${SCRIPT_DIR}/../logs/rabbitmq"
+    
+    mkdir -p "$rabbitmq_data_dir" "$rabbitmq_log_dir"
+    
+    echo "Starting RabbitMQ service..."
+    echo "Data directory: $rabbitmq_data_dir"
+    echo "Log directory: $rabbitmq_log_dir"
+    
+    local conda_sh="$(conda info --base)/etc/profile.d/conda.sh"
+    source "$conda_sh"
+    conda activate "$env_name"
+    
+    export RABBITMQ_BASE_DIR="$rabbitmq_data_dir"
+    export RABBITMQ_LOG_BASE="$rabbitmq_log_dir"
+    
+    nohup rabbitmq-server -detached \
+        -rabbitmq_listener tcp/pid_memory_watermark_fraction=memory_balance \
+        -env RABBITMQ_MNESIA_BASE="$rabbitmq_data_dir/mnesia" \
+        > "$rabbitmq_log_dir/rabbitmq_startup.log" 2>&1 &
+    
+    local pid=$!
+    conda deactivate
+    
+    echo "RabbitMQ started with PID: $pid"
+    echo "Waiting for RabbitMQ to fully start..."
+    
+    local max_attempts=30
+    local attempt=0
+    while [[ $attempt -lt $max_attempts ]]; do
+        sleep 2
+        if check_rabbitmq_running; then
+            echo "RabbitMQ service started successfully"
+            echo "Log file: $rabbitmq_log_dir/rabbitmq_startup.log"
+            return 0
+        fi
+        ((attempt++))
+        echo "Waiting for RabbitMQ... ($attempt/$max_attempts)"
+    done
+    
+    echo "WARNING: RabbitMQ may not be fully started yet" >&2
+    echo "Please check logs at: $rabbitmq_log_dir/rabbitmq_startup.log" >&2
+    return 0
+}
+
 run_db_mq_config() {
-    echo "=== Database and Message Queue Configuration Module ==="
+    log_section "Database and Message Queue Configuration"
     
     load_config
     export_config_vars
     
+    log_subsection "PostgreSQL Setup"
     setup_postgres
     local pg_status=$?
     
+    log_subsection "RabbitMQ Installation"
     setup_rabbitmq
     local mq_status=$?
+    
+    log_subsection "RabbitMQ Service Startup"
+    start_rabbitmq_service
+    local mq_start_status=$?
+    
+    log_section "Configuration Summary"
+    echo "PostgreSQL Setup: $([ $pg_status -eq 0 ] && echo '✓ SUCCESS' || echo '✗ FAILED')"
+    echo "RabbitMQ Installation: $([ $mq_status -eq 0 ] && echo '✓ SUCCESS' || echo '✗ FAILED')"
+    echo "RabbitMQ Service: $([ $mq_start_status -eq 0 ] && echo '✓ SUCCESS' || echo '✗ FAILED')"
+    echo ""
     
     if [[ $pg_status -eq 0 ]] && [[ $mq_status -eq 0 ]]; then
         return 0
