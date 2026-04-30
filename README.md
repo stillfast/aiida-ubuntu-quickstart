@@ -1,385 +1,387 @@
-# AiiDA Ubuntu Quickstart
+# AiiDA Ubuntu 一键部署脚本 / AiiDA Ubuntu Quickstart
 
-简体中文 | [English](#english)
+[English](#english) | [中文](#中文)
 
 ---
 
-## 项目简介
+## 中文
 
-AiiDA Ubuntu Quickstart 是一个自动化脚本工具，用于在 Ubuntu/Linux 系统上快速部署和配置 AiiDA 工作流管理系统。通过模块化脚本设计，自动完成环境搭建、数据库配置、消息队列设置以及用户档案创建。
+### 项目简介
 
-**AiiDA**（Automated Interactive Infrastructure and Database for Computational Modelling）是一款开源的工作流管理系统，广泛应用于计算材料科学、计算化学和人工智能驱动的科学研究领域。
+AiiDA Ubuntu 一键部署脚本是一个自动化工具，用于在 Ubuntu/WSL 环境中快速部署完整的 AiiDA 计算科学工作流管理系统。该脚本自动化了 Conda 环境配置、PostgreSQL 数据库安装、RabbitMQ 消息队列配置以及 AiiDA Profile 设置等步骤。
 
-## 快速开始
+### 主要特性
 
-### 唯一的前置要求
+- **一键部署**：仅需一条命令即可完成所有组件的安装和配置
+- **幂等性设计**：支持重复运行，自动检测并跳过已完成的步骤
+- **智能包管理**：优先使用 pip 安装 AiiDA 包，失败时自动回退到 conda
+- **自动验证**：部署完成后自动检查所有服务状态
+- **详细日志**：完整的安装日志，方便问题排查
 
-- **Conda** (Miniconda 或 Anaconda) 已安装
+### 系统要求
 
-脚本会自动安装并配置：
-- ✅ Conda 虚拟环境
-- ✅ PostgreSQL 数据库
-- ✅ RabbitMQ 消息队列
-- ✅ AiiDA 及其插件
+- Ubuntu 18.04+ 或 WSL (Windows Subsystem for Linux)
+- Conda (Miniconda 或 Anaconda)
+- 至少 4GB 可用内存
+- 至少 10GB 可用磁盘空间
 
-### 一键安装（推荐）
+### 快速开始
+
+#### 1. 克隆项目
 
 ```bash
-git clone <repository_url>
+git clone https://github.com/stillfast/aiida-ubuntu-quickstart.git
 cd aiida-ubuntu-quickstart
-bash setup_aiida_profile.sh
 ```
 
-安装完成后：
+#### 2. 修改配置文件
 
-```bash
-conda activate <your_environment_name>
-verdi status
-```
-
-### 分步执行
-
-如需单独运行某个模块：
-
-```bash
-# 验证配置
-bash scripts/init_aiida.sh --validate
-
-# 环境变量加载
-bash scripts/01-env_loader.sh
-
-# Conda 环境管理
-bash scripts/02-conda_manager.sh
-
-# 数据库和消息队列配置
-bash scripts/03-db_mq_config.sh
-
-# AiiDA 档案配置
-bash scripts/04-aiida_profile.sh
-
-# 诊断检查（可选）
-bash scripts/05-diagnose.sh
-```
-
-## 配置说明
-
-编辑 `config.env` 文件，配置您的环境参数：
+编辑 `config.env` 文件，根据需要修改以下配置：
 
 ```bash
 # Conda 环境配置
-CONDA_ENV_NAME=aiida_test
-CONDA_PYTHON_VERSION=3.10
-CONDA_PACKAGES=aiida-core aiida-vasp
-CONDA_CHANNELS=conda-forge
+CONDA_ENV_NAME=aiida                    # 环境名称
+CONDA_PYTHON_VERSION=3.10              # Python 版本
+CONDA_PACKAGES="aiida-vasp"             # 要安装的包（支持空格分隔多个包）
 
 # 数据库配置
-DB_HOST=127.0.0.1
-DB_PORT=5432
-DB_USERNAME=aiida_user
-DB_PASSWORD=your_password
-DB_NAME=aiida_db
-DB_PATH=/home/username/data/postgresql/mylocal_db
+DB_HOST=127.0.0.1                       # 数据库主机
+DB_PORT=5432                             # 数据库端口
+DB_USERNAME=aiida_user                  # 数据库用户名
+DB_PASSWORD=your_password                # 数据库密码
+DB_NAME=aiida_db                        # 数据库名称
+DB_PATH=/home/user/data/postgresql       # 数据库存储路径
 
 # RabbitMQ 配置
-RABBITMQ_VERSION=3.8.3
+RABBITMQ_VERSION=3.8.3                 # RabbitMQ 版本
 
-# 用户信息（请替换为您的真实信息）
-USER_EMAIL=your.email@example.com
-USER_FIRSTNAME=YourFirstName
-USER_LASTNAME=YourLastName
-USER_INSTITUTION=YourInstitution
+# 用户信息
+USER_EMAIL=your@email.com               # AiiDA 用户邮箱
+USER_FIRSTNAME=Your                     # 名字
+USER_LASTNAME=Name                      # 姓氏
+USER_INSTITUTION=YourInstitution        # 机构
 
-# AiiDA 档案配置
-PROFILE_NAME=aiida_profile
-PROFILE_REPOSITORY_URI=file:///home/username/data/aiida_profile/profile
+# AiiDA Profile 配置
+PROFILE_NAME=aiida_profile              # Profile 名称
+PROFILE_REPOSITORY_URI=file:///home/user/data/aiida_profile  # 数据仓库路径
 ```
 
-### 必需配置项说明
-
-| 配置项 | 说明 | 示例 |
-|--------|------|------|
-| `CONDA_ENV_NAME` | Conda 环境名称 | `aiida_test` |
-| `CONDA_PYTHON_VERSION` | Python 版本 | `3.10` |
-| `CONDA_PACKAGES` | 需安装的包 | `aiida-core aiida-vasp` |
-| `DB_HOST` | 数据库主机 | `127.0.0.1` |
-| `DB_PORT` | 数据库端口 | `5432` |
-| `DB_USERNAME` | 数据库用户名 | `aiida_user` |
-| `DB_PASSWORD` | **数据库密码** | `your_password` |
-| `DB_NAME` | 数据库名称 | `aiida_db` |
-| `DB_PATH` | PostgreSQL 数据目录 | `/home/username/data/postgresql/db` |
-| `USER_EMAIL` | **用户邮箱** | `user@example.com` |
-| `USER_FIRSTNAME` | **用户名** | `YourFirstName` |
-| `USER_LASTNAME` | **用户姓氏** | `YourLastName` |
-| `USER_INSTITUTION` | **所属机构** | `YourInstitution` |
-| `PROFILE_NAME` | AiiDA 档案名称 | `aiida_profile` |
-| `PROFILE_REPOSITORY_URI` | 档案仓库路径 | `file:///home/username/data/aiida_profile` |
-
-⚠️ **请务必修改带粗体的敏感信息**
-
-## 目录结构
-
-```
-aiida-ubuntu-quickstart/
-├── config.env                 # 配置文件
-├── setup_aiida_profile.sh    # 一键安装脚本
-├── README.md                 # 项目说明文档
-├── logs/                     # 日志目录
-│   ├── aiida_setup_*.log    # 安装日志
-│   └── rabbitmq/             # RabbitMQ 日志
-└── scripts/
-    ├── init_aiida.sh         # 主初始化脚本
-    ├── 01-env_loader.sh      # 环境变量加载
-    ├── 02-conda_manager.sh   # Conda 环境管理
-    ├── 03-db_mq_config.sh    # 数据库和消息队列
-    ├── 04-aiida_profile.sh   # AiiDA 档案配置
-    └── 05-diagnose.sh        # 诊断检查
-```
-
-## 日志与故障排除
-
-### 日志位置
-
-安装过程会自动记录日志：
+#### 3. 运行部署脚本
 
 ```bash
-# 主日志
-cat logs/aiida_setup_*.log
-
-# RabbitMQ 日志
-cat logs/rabbitmq/rabbitmq_startup.log
+bash quickstart.sh
 ```
+
+#### 4. 验证安装
+
+部署完成后，运行以下命令验证：
+
+```bash
+conda activate aiida
+verdi status
+```
+
+应该看到类似输出：
+
+```
+✔ version:     AiiDA v2.8.0
+✔ config:      /home/user/.aiida
+✔ profile:     aiida_profile
+✔ storage:     Storage for 'aiida_profile' [open]
+✔ broker:      RabbitMQ v3.8.3 @ amqp://guest:guest@127.0.0.1:5672
+```
+
+### 部署流程
+
+脚本会自动执行以下步骤：
+
+1. **创建 Conda 环境** - 创建指定 Python 版本的虚拟环境
+2. **安装 AiiDA 包** - 优先 pip，失败则 conda
+3. **安装 PostgreSQL** - 数据库管理系统
+4. **安装 RabbitMQ** - 消息队列服务
+5. **初始化数据库** - 配置数据库存储路径和端口
+6. **启动 PostgreSQL** - 启动数据库服务
+7. **创建数据库用户和数据库** - 设置数据库访问凭证
+8. **配置 AiiDA Profile** - 创建 AiiDA 工作环境
+9. **验证部署** - 检查所有服务状态
 
 ### 常见问题
 
-#### 1. PostgreSQL 连接失败
+#### Q1: 部署失败，提示数据库已存在
 
+**原因**: 数据库中保留了旧数据
+
+**解决方案**: 
+1. 使用新的数据库名称（修改 `config.env` 中的 `DB_NAME`）
+2. 或删除旧数据库：
+   ```bash
+   dropdb -h 127.0.0.1 -p 5432 -U aiida_user aiida_db
+   ```
+
+#### Q2: Python 版本不匹配
+
+**原因**: RabbitMQ 安装时可能降级了 Python
+
+**解决方案**: 脚本会自动修复，或手动执行：
 ```bash
-# 检查服务状态
-pg_isready
-
-# 检查端口
-grep port /path/to/postgresql.conf
+conda install -n aiida python=3.10
 ```
 
-#### 2. RabbitMQ 连接失败
+#### Q3: RabbitMQ 启动失败
 
+**原因**: 端口被占用或权限不足
+
+**解决方案**:
 ```bash
 # 检查 RabbitMQ 状态
 rabbitmqctl status
 
-# 重新启动 RabbitMQ
-rabbitmq-server -detached
+# 重启 RabbitMQ
+rabbitmqctl stop && rabbitmq-server -detached
 ```
 
-#### 3. Conda 环境问题
+#### Q4: verdi 命令找不到
 
+**原因**: Conda 环境未激活
+
+**解决方案**:
 ```bash
-# 初始化 Conda
-conda init bash
-source ~/.bashrc
+conda activate aiida
 ```
 
-### 诊断工具
-
-```bash
-bash scripts/05-diagnose.sh
-```
-
-## 许可证
-
-MIT License
-
----
-
-<a id="english"></a>
-
-# AiiDA Ubuntu Quickstart
-
-[中文](#项目简介) | English
-
----
-
-## Project Overview
-
-AiiDA Ubuntu Quickstart is an automation toolkit for rapidly deploying and configuring the AiiDA workflow management system on Ubuntu/Linux. The modular scripts automatically handle environment setup, database configuration, message queue setup, and user profile creation.
-
-**AiiDA** (Automated Interactive Infrastructure and Database for Computational Modelling) is an open-source workflow management system widely used in computational materials science, computational chemistry, and AI-driven scientific research.
-
-## Quick Start
-
-### Only Prerequisite
-
-- **Conda** (Miniconda or Anaconda) installed
-
-The script will automatically install and configure:
-- ✅ Conda virtual environment
-- ✅ PostgreSQL database
-- ✅ RabbitMQ message queue
-- ✅ AiiDA and plugins
-
-### One-Click Installation (Recommended)
-
-```bash
-git clone <repository_url>
-cd aiida-ubuntu-quickstart
-bash setup_aiida_profile.sh
-```
-
-After installation:
-
-```bash
-conda activate <your_environment_name>
-verdi status
-```
-
-### Step-by-Step Execution
-
-To run individual modules:
-
-```bash
-# Validate configuration
-bash scripts/init_aiida.sh --validate
-
-# Load environment variables
-bash scripts/01-env_loader.sh
-
-# Manage Conda environment
-bash scripts/02-conda_manager.sh
-
-# Configure database and message queue
-bash scripts/03-db_mq_config.sh
-
-# Configure AiiDA profile
-bash scripts/04-aiida_profile.sh
-
-# Diagnostic check (optional)
-bash scripts/05-diagnose.sh
-```
-
-## Configuration
-
-Edit the `config.env` file to configure your environment:
-
-```bash
-# Conda Environment Configuration
-CONDA_ENV_NAME=aiida_test
-CONDA_PYTHON_VERSION=3.10
-CONDA_PACKAGES=aiida-core aiida-vasp
-CONDA_CHANNELS=conda-forge
-
-# Database Configuration
-DB_HOST=127.0.0.1
-DB_PORT=5432
-DB_USERNAME=aiida_user
-DB_PASSWORD=your_password
-DB_NAME=aiida_db
-DB_PATH=/home/username/data/postgresql/mylocal_db
-
-# RabbitMQ Configuration
-RABBITMQ_VERSION=3.8.3
-
-# User Information (Please replace with your actual information)
-USER_EMAIL=your.email@example.com
-USER_FIRSTNAME=YourFirstName
-USER_LASTNAME=YourLastName
-USER_INSTITUTION=YourInstitution
-
-# AiiDA Profile Configuration
-PROFILE_NAME=aiida_profile
-PROFILE_REPOSITORY_URI=file:///home/username/data/aiida_profile/profile
-```
-
-### Required Configuration Items
-
-| Configuration Item | Description | Example |
-|--------------------|-------------|---------|
-| `CONDA_ENV_NAME` | Conda environment name | `aiida_test` |
-| `CONDA_PYTHON_VERSION` | Python version | `3.10` |
-| `CONDA_PACKAGES` | Packages to install | `aiida-core aiida-vasp` |
-| `DB_HOST` | Database host | `127.0.0.1` |
-| `DB_PORT` | Database port | `5432` |
-| `DB_USERNAME` | Database username | `aiida_user` |
-| `DB_PASSWORD` | **Database password** | `your_password` |
-| `DB_NAME` | Database name | `aiida_db` |
-| `DB_PATH` | PostgreSQL data directory | `/home/username/data/postgresql/db` |
-| `USER_EMAIL` | **User email** | `user@example.com` |
-| `USER_FIRSTNAME` | **User first name** | `YourFirstName` |
-| `USER_LASTNAME` | **User last name** | `YourLastName` |
-| `USER_INSTITUTION` | **Institution** | `YourInstitution` |
-| `PROFILE_NAME` | AiiDA profile name | `aiida_profile` |
-| `PROFILE_REPOSITORY_URI` | Profile repository path | `file:///home/username/data/aiida_profile` |
-
-⚠️ **Please modify the items in bold with your actual information**
-
-## Project Structure
+### 项目结构
 
 ```
 aiida-ubuntu-quickstart/
-├── config.env                 # Configuration file
-├── setup_aiida_profile.sh    # One-click installation script
-├── README.md                 # Project documentation
-├── logs/                     # Log directory
-│   ├── aiida_setup_*.log    # Installation logs
-│   └── rabbitmq/             # RabbitMQ logs
-└── scripts/
-    ├── init_aiida.sh         # Main initialization script
-    ├── 01-env_loader.sh      # Environment variable loader
-    ├── 02-conda_manager.sh   # Conda environment manager
-    ├── 03-db_mq_config.sh    # Database and message queue
-    ├── 04-aiida_profile.sh   # AiiDA profile configuration
-    └── 05-diagnose.sh        # Diagnostic check
+├── README.md          # 本文件
+├── config.env         # 配置文件
+├── quickstart.sh      # 主部署脚本
+└── logs/              # 安装日志目录
 ```
 
-## Logging and Troubleshooting
+### 日志文件
 
-### Log Locations
+所有安装日志都会保存在 `logs/` 目录中，文件名格式为：
+```
+aiida_install_YYYYMMDD_HHMMSS.log
+```
 
-Installation process automatically logs to files:
+### 卸载
+
+如需卸载 AiiDA 环境：
 
 ```bash
-# Main log
-cat logs/aiida_setup_*.log
+# 删除 Conda 环境
+conda env remove -n aiida
 
-# RabbitMQ log
-cat logs/rabbitmq/rabbitmq_startup.log
+# 删除数据目录
+rm -rf /home/user/data/postgresql
+rm -rf /home/user/data/aiida_profile
+
+# 删除 AiiDA 配置
+rm -rf ~/.aiida
 ```
 
-### Common Issues
+### 许可证
 
-#### 1. PostgreSQL Connection Failed
+本项目采用 MIT 许可证。
+
+### 贡献
+
+欢迎提交 Issue 和 Pull Request！
+
+### 联系方式
+
+- GitHub Issues: https://github.com/stillfast/aiida-ubuntu-quickstart/issues
+
+---
+
+## English
+
+### Project Overview
+
+AiiDA Ubuntu Quickstart is an automation tool for quickly deploying a complete AiiDA computational science workflow management system in Ubuntu/WSL environments. The script automates Conda environment setup, PostgreSQL database installation, RabbitMQ message queue configuration, and AiiDA Profile setup.
+
+### Key Features
+
+- **One-command deployment**: Complete installation and configuration with a single command
+- **Idempotent design**: Supports repeated runs, automatically detects and skips completed steps
+- **Smart package management**: Prefers pip for AiiDA packages, falls back to conda on failure
+- **Automatic verification**: Checks all service statuses after deployment
+- **Detailed logging**: Complete installation logs for easy troubleshooting
+
+### System Requirements
+
+- Ubuntu 18.04+ or WSL (Windows Subsystem for Linux)
+- Conda (Miniconda or Anaconda)
+- At least 4GB available RAM
+- At least 10GB available disk space
+
+### Quick Start
+
+#### 1. Clone the Project
 
 ```bash
-# Check service status
-pg_isready
-
-# Check port configuration
-grep port /path/to/postgresql.conf
+git clone https://github.com/stillfast/aiida-ubuntu-quickstart.git
+cd aiida-ubuntu-quickstart
 ```
 
-#### 2. RabbitMQ Connection Failed
+#### 2. Modify Configuration
 
+Edit the `config.env` file to customize your setup:
+
+```bash
+# Conda Environment
+CONDA_ENV_NAME=aiida                    # Environment name
+CONDA_PYTHON_VERSION=3.10              # Python version
+CONDA_PACKAGES="aiida-vasp"             # Packages to install (space-separated)
+
+# Database Configuration
+DB_HOST=127.0.0.1                       # Database host
+DB_PORT=5432                             # Database port
+DB_USERNAME=aiida_user                  # Database username
+DB_PASSWORD=your_password                # Database password
+DB_NAME=aiida_db                        # Database name
+DB_PATH=/home/user/data/postgresql       # Database storage path
+
+# RabbitMQ Configuration
+RABBITMQ_VERSION=3.8.3                 # RabbitMQ version
+
+# User Information
+USER_EMAIL=your@email.com               # AiiDA user email
+USER_FIRSTNAME=Your                     # First name
+USER_LASTNAME=Name                      # Last name
+USER_INSTITUTION=YourInstitution        # Institution
+
+# AiiDA Profile Configuration
+PROFILE_NAME=aiida_profile              # Profile name
+PROFILE_REPOSITORY_URI=file:///home/user/data/aiida_profile  # Repository path
+```
+
+#### 3. Run the Deployment Script
+
+```bash
+bash quickstart.sh
+```
+
+#### 4. Verify Installation
+
+After deployment, verify with:
+
+```bash
+conda activate aiida
+verdi status
+```
+
+You should see output similar to:
+
+```
+✔ version:     AiiDA v2.8.0
+✔ config:      /home/user/.aiida
+✔ profile:     aiida_profile
+✔ storage:     Storage for 'aiida_profile' [open]
+✔ broker:      RabbitMQ v3.8.3 @ amqp://guest:guest@127.0.0.1:5672
+```
+
+### Deployment Process
+
+The script automatically performs these steps:
+
+1. **Create Conda Environment** - Create virtual environment with specified Python version
+2. **Install AiiDA Packages** - Prefer pip, fallback to conda on failure
+3. **Install PostgreSQL** - Database management system
+4. **Install RabbitMQ** - Message queue service
+5. **Initialize Database** - Configure database storage path and port
+6. **Start PostgreSQL** - Start database service
+7. **Create Database User and Database** - Set up database credentials
+8. **Configure AiiDA Profile** - Create AiiDA working environment
+9. **Verify Deployment** - Check all service statuses
+
+### Troubleshooting
+
+#### Q1: Deployment fails with "database already exists"
+
+**Cause**: Old data remains in the database
+
+**Solution**: 
+1. Use a new database name (modify `DB_NAME` in `config.env`)
+2. Or delete the old database:
+   ```bash
+   dropdb -h 127.0.0.1 -p 5432 -U aiida_user aiida_db
+   ```
+
+#### Q2: Python version mismatch
+
+**Cause**: RabbitMQ installation may downgrade Python
+
+**Solution**: Script auto-fixes, or manually:
+```bash
+conda install -n aiida python=3.10
+```
+
+#### Q3: RabbitMQ fails to start
+
+**Cause**: Port in use or insufficient permissions
+
+**Solution**:
 ```bash
 # Check RabbitMQ status
 rabbitmqctl status
 
 # Restart RabbitMQ
-rabbitmq-server -detached
+rabbitmqctl stop && rabbitmq-server -detached
 ```
 
-#### 3. Conda Environment Issues
+#### Q4: verdi command not found
+
+**Cause**: Conda environment not activated
+
+**Solution**:
+```bash
+conda activate aiida
+```
+
+### Project Structure
+
+```
+aiida-ubuntu-quickstart/
+├── README.md          # This file
+├── config.env         # Configuration file
+├── quickstart.sh      # Main deployment script
+└── logs/              # Installation log directory
+```
+
+### Log Files
+
+All installation logs are saved in the `logs/` directory with filename format:
+```
+aiida_install_YYYYMMDD_HHMMSS.log
+```
+
+### Uninstallation
+
+To uninstall the AiiDA environment:
 
 ```bash
-# Initialize Conda
-conda init bash
-source ~/.bashrc
+# Remove Conda environment
+conda env remove -n aiida
+
+# Remove data directories
+rm -rf /home/user/data/postgresql
+rm -rf /home/user/data/aiida_profile
+
+# Remove AiiDA configuration
+rm -rf ~/.aiida
 ```
 
-### Diagnostic Tool
+### License
 
-```bash
-bash scripts/05-diagnose.sh
-```
+This project is licensed under the MIT License.
 
-## License
+### Contributing
 
-MIT License
+Issues and Pull Requests are welcome!
+
+### Contact
+
+- GitHub Issues: https://github.com/stillfast/aiida-ubuntu-quickstart/issues
