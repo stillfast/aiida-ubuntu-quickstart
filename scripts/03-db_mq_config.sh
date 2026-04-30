@@ -331,6 +331,7 @@ check_rabbitmq_running() {
 setup_rabbitmq() {
     local rabbitmq_version="${CONFIG_VARS[RABBITMQ_VERSION]}"
     local env_name="${CONFIG_VARS[CONDA_ENV_NAME]}"
+    local conda_env_path="$(conda info --base)/envs/$env_name"
     
     if check_rabbitmq_installed; then
         echo "RabbitMQ is already installed"
@@ -350,6 +351,47 @@ setup_rabbitmq() {
     if ! conda env list 2>/dev/null | grep -q "^$env_name "; then
         echo "ERROR: Conda environment '$env_name' does not exist" >&2
         return 1
+    fi
+    
+    if [[ ! -w "$conda_env_path" ]]; then
+        echo "WARNING: Conda environment is read-only, attempting alternative installation..." >&2
+        
+        local fallback_dir="/tmp/aiida_rabbitmq_$env_name"
+        mkdir -p "$fallback_dir"
+        
+        echo "Downloading RabbitMQ generic binary to $fallback_dir..." >&2
+        cd "$fallback_dir"
+        
+        if ! command -v wget &> /dev/null && ! command -v curl &> /dev/null; then
+            echo "ERROR: Neither wget nor curl is available" >&2
+            echo "Please install RabbitMQ manually or ensure wget/curl is installed" >&2
+            return 1
+        fi
+        
+        local download_url="https://github.com/rabbitmq/rabbitmq-server/releases/download/v${rabbitmq_version}/rabbitmq-server-generic-unix-${rabbitmq_version}.tar.xz"
+        echo "Downloading from: $download_url" >&2
+        
+        if command -v wget &> /dev/null; then
+            wget -q "$download_url" || { echo "ERROR: Failed to download RabbitMQ" >&2; return 1; }
+        else
+            curl -sL "$download_url" -o "rabbitmq-server.tar.xz" || { echo "ERROR: Failed to download RabbitMQ" >&2; return 1; }
+        fi
+        
+        echo "Extracting RabbitMQ..." >&2
+        tar -xf "rabbitmq-server.tar.xz" || { echo "ERROR: Failed to extract RabbitMQ" >&2; return 1; }
+        
+        local rabbitmq_binary_dir="$fallback_dir/rabbitmq_server-$rabbitmq_version/sbin"
+        
+        if [[ -f "$rabbitmq_binary_dir/rabbitmq-server" ]]; then
+            echo "RabbitMQ downloaded successfully to $fallback_dir" >&2
+            echo "Add $rabbitmq_binary_dir to your PATH to use RabbitMQ commands" >&2
+        else
+            echo "ERROR: RabbitMQ binary not found after extraction" >&2
+            return 1
+        fi
+        
+        cd "$SCRIPT_DIR"
+        return 0
     fi
     
     conda install -n "$env_name" -c conda-forge::rabbitmq-server="$rabbitmq_version" -y
@@ -389,6 +431,7 @@ start_rabbitmq_service() {
     local env_name="${CONFIG_VARS[CONDA_ENV_NAME]}"
     local rabbitmq_data_dir="${SCRIPT_DIR}/../data/rabbitmq"
     local rabbitmq_log_dir="${SCRIPT_DIR}/../logs/rabbitmq"
+    local rabbitmq_version="${CONFIG_VARS[RABBITMQ_VERSION]}"
     
     mkdir -p "$rabbitmq_data_dir" "$rabbitmq_log_dir"
     
@@ -400,10 +443,23 @@ start_rabbitmq_service() {
     source "$conda_sh"
     conda activate "$env_name"
     
+    local rabbitmq_cmd=""
+    
+    if command -v rabbitmq-server &> /dev/null; then
+        rabbitmq_cmd="rabbitmq-server"
+    elif [[ -f "/tmp/aiida_rabbitmq_${env_name}/rabbitmq_server-${rabbitmq_version}/sbin/rabbitmq-server" ]]; then
+        rabbitmq_cmd="/tmp/aiida_rabbitmq_${env_name}/rabbitmq_server-${rabbitmq_version}/sbin/rabbitmq-server"
+    else
+        echo "ERROR: RabbitMQ server command not found" >&2
+        echo "Please ensure RabbitMQ is installed either via conda or manually downloaded" >&2
+        conda deactivate 2>/dev/null || true
+        return 1
+    fi
+    
     export RABBITMQ_BASE_DIR="$rabbitmq_data_dir"
     export RABBITMQ_LOG_BASE="$rabbitmq_log_dir"
     
-    nohup rabbitmq-server -detached \
+    nohup "$rabbitmq_cmd" -detached \
         -rabbitmq_listener tcp/pid_memory_watermark_fraction=memory_balance \
         -env RABBITMQ_MNESIA_BASE="$rabbitmq_data_dir/mnesia" \
         > "$rabbitmq_log_dir/rabbitmq_startup.log" 2>&1 &
