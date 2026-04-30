@@ -273,6 +273,9 @@ setup_aiida_profile() {
         echo ""
         echo "=== 设置 ${PROFILE_NAME} 为默认 Profile ==="
         verdi profile set-default "${PROFILE_NAME}"
+        echo ""
+        echo "=== 配置 RabbitMQ Broker ==="
+        verdi profile configure-rabbitmq "${PROFILE_NAME}"
     else
         # 检查数据库中是否有旧数据
         echo "=== 检查数据库 ${DB_NAME} ==="
@@ -316,6 +319,9 @@ setup_aiida_profile() {
         eval "$PROFILE_CMD"
         echo ""
         echo "Profile '${PROFILE_NAME}' 创建成功"
+        echo ""
+        echo "=== 配置 RabbitMQ Broker ==="
+        verdi profile configure-rabbitmq "${PROFILE_NAME}"
     fi
 
     echo ""
