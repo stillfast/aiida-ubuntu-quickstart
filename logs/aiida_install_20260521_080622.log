@@ -1,0 +1,3233 @@
+================================================================================
+AiiDA 环境部署日志 - 2026-05-21 08:06:22
+配置文件: /home/liguozhou/script/aiida/aiida-ubuntu-quickstart/config.env
+日志文件: /home/liguozhou/script/aiida/aiida-ubuntu-quickstart/logs/aiida_install_20260521_080622.log
+================================================================================
+
+Conda 已初始化，当前 base 环境: base
+
+=== 1. 创建 Conda 环境: aiida (Python 3.10) ===
+
+2 channel Terms of Service accepted
+Retrieving notices: - \ | / - \ | / - \ | / - \ | / done
+Channels:
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - done
+Solving environment: | done
+
+
+==> WARNING: A newer version of conda exists. <==
+    current version: 26.3.2
+    latest version: 26.5.0
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+## Package Plan ##
+
+  environment location: /home/liguozhou/install/miniconda3/envs/aiida
+
+  added / updated specs:
+    - python=3.10
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    _openmp_mutex-5.1          |           52_gnu           7 KB
+    libexpat-2.8.0             |       h7354ed3_0         123 KB
+    libgcc-15.2.0              |       h69a1729_8         803 KB
+    libgcc-ng-15.2.0           |       h166f726_8          28 KB
+    libnsl-2.0.0               |       h5eee18b_0          31 KB
+    libstdcxx-15.2.0           |       h39759b7_8         3.7 MB
+    packaging-26.0             |  py310h06a4308_0         165 KB
+    python-3.10.20             |       h741d88c_0        24.1 MB
+    setuptools-82.0.1          |  py310h06a4308_0         1.2 MB
+    wheel-0.46.3               |  py310h06a4308_0          54 KB
+    ------------------------------------------------------------
+                                           Total:        30.2 MB
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main 
+  _openmp_mutex      pkgs/main/linux-64::_openmp_mutex-5.1-52_gnu 
+  bzip2              pkgs/main/linux-64::bzip2-1.0.8-h5eee18b_6 
+  ca-certificates    pkgs/main/linux-64::ca-certificates-2026.3.19-h06a4308_0 
+  ld_impl_linux-64   pkgs/main/linux-64::ld_impl_linux-64-2.44-h9e0c5a2_3 
+  libexpat           pkgs/main/linux-64::libexpat-2.8.0-h7354ed3_0 
+  libffi             pkgs/main/linux-64::libffi-3.4.8-hc5d346e_2 
+  libgcc             pkgs/main/linux-64::libgcc-15.2.0-h69a1729_8 
+  libgcc-ng          pkgs/main/linux-64::libgcc-ng-15.2.0-h166f726_8 
+  libnsl             pkgs/main/linux-64::libnsl-2.0.0-h5eee18b_0 
+  libstdcxx          pkgs/main/linux-64::libstdcxx-15.2.0-h39759b7_8 
+  libuuid            pkgs/main/linux-64::libuuid-1.41.5-h5eee18b_0 
+  libxcb             pkgs/main/linux-64::libxcb-1.17.0-h9b100fa_0 
+  libzlib            pkgs/main/linux-64::libzlib-1.3.1-h47b2149_1 
+  ncurses            pkgs/main/linux-64::ncurses-6.5-h7934f7d_0 
+  openssl            pkgs/main/linux-64::openssl-3.5.6-h1b28b03_0 
+  packaging          pkgs/main/linux-64::packaging-26.0-py310h06a4308_0 
+  pip                pkgs/main/noarch::pip-26.0.1-pyhc872135_1 
+  pthread-stubs      pkgs/main/linux-64::pthread-stubs-0.3-h0ce48e5_1 
+  python             pkgs/main/linux-64::python-3.10.20-h741d88c_0 
+  readline           pkgs/main/linux-64::readline-8.3-hc2a1206_0 
+  setuptools         pkgs/main/linux-64::setuptools-82.0.1-py310h06a4308_0 
+  sqlite             pkgs/main/linux-64::sqlite-3.51.2-h3e8d24a_0 
+  tk                 pkgs/main/linux-64::tk-8.6.15-h54e0aa7_0 
+  tzdata             pkgs/main/noarch::tzdata-2026a-he532380_0 
+  wheel              pkgs/main/linux-64::wheel-0.46.3-py310h06a4308_0 
+  xorg-libx11        pkgs/main/linux-64::xorg-libx11-1.8.12-h9b100fa_1 
+  xorg-libxau        pkgs/main/linux-64::xorg-libxau-1.0.12-h9b100fa_0 
+  xorg-libxdmcp      pkgs/main/linux-64::xorg-libxdmcp-1.1.5-h9b100fa_0 
+  xorg-xorgproto     pkgs/main/linux-64::xorg-xorgproto-2024.1-h5eee18b_1 
+  xz                 pkgs/main/linux-64::xz-5.8.2-h448239c_0 
+  zlib               pkgs/main/linux-64::zlib-1.3.1-h47b2149_1 
+
+
+
+Downloading and Extracting Packages: ...working...python-3.10.20       | 24.1 MB   |            |   0% 
+libstdcxx-15.2.0     | 3.7 MB    |            |   0% [A
+
+setuptools-82.0.1    | 1.2 MB    |            |   0% [A[A
+
+
+libgcc-15.2.0        | 803 KB    |            |   0% [A[A[A
+
+
+
+packaging-26.0       | 165 KB    |            |   0% [A[A[A[A
+
+
+
+
+libexpat-2.8.0       | 123 KB    |            |   0% [A[A[A[A[A
+
+
+
+
+
+wheel-0.46.3         | 54 KB     |            |   0% [A[A[A[A[A[A
+
+
+
+
+
+
+libnsl-2.0.0         | 31 KB     |            |   0% [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+libgcc-ng-15.2.0     | 28 KB     |            |   0% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+_openmp_mutex-5.1    | 7 KB      |            |   0% [A[A[A[A[A[A[A[A[Apython-3.10.20       | 24.1 MB   |            |   0% 
+
+
+
+packaging-26.0       | 165 KB    | 9          |  10% [A[A[A[A
+
+setuptools-82.0.1    | 1.2 MB    | 1          |   1% [A[A
+
+
+libgcc-15.2.0        | 803 KB    | 1          |   2% [A[A[A
+libstdcxx-15.2.0     | 3.7 MB    |            |   0% [A
+libstdcxx-15.2.0     | 3.7 MB    | 1          |   2% [Apython-3.10.20       | 24.1 MB   |            |   0% 
+
+setuptools-82.0.1    | 1.2 MB    | 2          |   3% [A[A
+
+
+libgcc-15.2.0        | 803 KB    | 3          |   4% [A[A[A
+libstdcxx-15.2.0     | 3.7 MB    | 4          |   4% [A
+
+
+libgcc-15.2.0        | 803 KB    | 9          |  10% [A[A[A
+
+
+
+packaging-26.0       | 165 KB    | ####8      |  48% [A[A[A[A
+
+
+
+packaging-26.0       | 165 KB    | ########## | 100% [A[A[A[A
+
+setuptools-82.0.1    | 1.2 MB    | 9          |   9% [A[A
+
+
+
+packaging-26.0       | 165 KB    | ########## | 100% [A[A[A[A
+
+
+libgcc-15.2.0        | 803 KB    | #7         |  18% [A[A[A
+libstdcxx-15.2.0     | 3.7 MB    | 5          |   5% [A
+
+
+
+
+libexpat-2.8.0       | 123 KB    | #2         |  13% [A[A[A[A[Apython-3.10.20       | 24.1 MB   |            |   0% 
+
+
+libgcc-15.2.0        | 803 KB    | ###1       |  32% [A[A[A
+libstdcxx-15.2.0     | 3.7 MB    | 8          |   8% [A
+
+
+
+
+libexpat-2.8.0       | 123 KB    | ########## | 100% [A[A[A[A[A
+
+
+
+
+libexpat-2.8.0       | 123 KB    | ########## | 100% [A[A[A[A[A
+
+
+
+
+libexpat-2.8.0       | 123 KB    | ########## | 100% [A[A[A[A[A
+
+
+libgcc-15.2.0        | 803 KB    | ####1      |  42% [A[A[A
+libstdcxx-15.2.0     | 3.7 MB    | ##         |  20% [Apython-3.10.20       | 24.1 MB   |            |   1% 
+
+setuptools-82.0.1    | 1.2 MB    | #1         |  12% [A[A
+
+
+libgcc-15.2.0        | 803 KB    | ######1    |  62% [A[A[A
+libstdcxx-15.2.0     | 3.7 MB    | ##6        |  26% [A
+
+setuptools-82.0.1    | 1.2 MB    | ##         |  21% [A[A
+libstdcxx-15.2.0     | 3.7 MB    | ###5       |  35% [A
+
+setuptools-82.0.1    | 1.2 MB    | ###6       |  36% [A[Apython-3.10.20       | 24.1 MB   | 1          |   1% 
+
+setuptools-82.0.1    | 1.2 MB    | #####4     |  54% [A[A
+
+
+libgcc-15.2.0        | 803 KB    | #######3   |  74% [A[A[A
+
+
+
+
+
+wheel-0.46.3         | 54 KB     | ##9        |  30% [A[A[A[A[A[A
+
+
+
+
+
+wheel-0.46.3         | 54 KB     | ########## | 100% [A[A[A[A[A[A
+
+
+
+
+
+wheel-0.46.3         | 54 KB     | ########## | 100% [A[A[A[A[A[A
+
+
+libgcc-15.2.0        | 803 KB    | ########## | 100% [A[A[A
+
+setuptools-82.0.1    | 1.2 MB    | #######5   |  76% [A[A
+
+
+libgcc-15.2.0        | 803 KB    | ########## | 100% [A[A[A
+
+
+libgcc-15.2.0        | 803 KB    | ########## | 100% [A[A[A
+libstdcxx-15.2.0     | 3.7 MB    | ####2      |  42% [Apython-3.10.20       | 24.1 MB   | 1          |   1% 
+
+setuptools-82.0.1    | 1.2 MB    | ########## | 100% [A[A
+
+setuptools-82.0.1    | 1.2 MB    | ########## | 100% [A[A
+
+
+
+
+
+
+libnsl-2.0.0         | 31 KB     | #####1     |  52% [A[A[A[A[A[A[A
+libstdcxx-15.2.0     | 3.7 MB    | #####9     |  59% [A
+
+
+
+
+
+
+libnsl-2.0.0         | 31 KB     | ########## | 100% [A[A[A[A[A[A[A
+
+
+
+
+
+
+libnsl-2.0.0         | 31 KB     | ########## | 100% [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+libgcc-ng-15.2.0     | 28 KB     | #####7     |  58% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+libgcc-ng-15.2.0     | 28 KB     | ########## | 100% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+libgcc-ng-15.2.0     | 28 KB     | ########## | 100% [A[A[A[A[A[A[A[A
+libstdcxx-15.2.0     | 3.7 MB    | ########7  |  87% [A
+
+setuptools-82.0.1    | 1.2 MB    | ########## | 100% [A[A
+libstdcxx-15.2.0     | 3.7 MB    | ########## | 100% [A
+
+
+
+
+
+
+
+
+_openmp_mutex-5.1    | 7 KB      | ########## | 100% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+_openmp_mutex-5.1    | 7 KB      | ########## | 100% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+_openmp_mutex-5.1    | 7 KB      | ########## | 100% [A[A[A[A[A[A[A[A[A
+libstdcxx-15.2.0     | 3.7 MB    | ########## | 100% [Apython-3.10.20       | 24.1 MB   | 2          |   2% python-3.10.20       | 24.1 MB   | 4          |   5% python-3.10.20       | 24.1 MB   | 6          |   7% python-3.10.20       | 24.1 MB   | 8          |   8% python-3.10.20       | 24.1 MB   | 9          |  10% python-3.10.20       | 24.1 MB   | #6         |  16% python-3.10.20       | 24.1 MB   | ##3        |  24% python-3.10.20       | 24.1 MB   | ####       |  40% python-3.10.20       | 24.1 MB   | #####1     |  51% python-3.10.20       | 24.1 MB   | ######9    |  70% python-3.10.20       | 24.1 MB   | #######8   |  78% python-3.10.20       | 24.1 MB   | ########6  |  87% python-3.10.20       | 24.1 MB   | #########2 |  92% python-3.10.20       | 24.1 MB   | #########7 |  97% python-3.10.20       | 24.1 MB   | ########## | 100% python-3.10.20       | 24.1 MB   | ########## | 100%                                                      
+                                                     [A
+
+                                                     [A[A
+
+
+                                                     [A[A[A
+
+
+
+                                                     [A[A[A[A
+
+
+
+
+                                                     [A[A[A[A[A
+
+
+
+
+
+                                                     [A[A[A[A[A[A
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A done
+Preparing transaction: - \ done
+Verifying transaction: / - \ | / - \ | / - \ done
+Executing transaction: / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - done
+#
+# To activate this environment, use
+#
+#     $ conda activate aiida
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+当前环境: #
+aiida
+
+=== 2. 安装 AiiDA 包: aiida-vasp ===
+
+尝试使用 pip 安装 aiida-vasp...
+包 aiida-vasp 通过 pip 安装成功
+AiiDA 包安装完成
+
+=== 3. 安装 PostgreSQL ===
+
+2 channel Terms of Service accepted
+Channels:
+ - conda-forge
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ done
+Solving environment: / - done
+
+## Package Plan ##
+
+  environment location: /home/liguozhou/install/miniconda3/envs/aiida
+
+  added / updated specs:
+    - postgresql
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    ca-certificates-2026.5.20  |       hbd8a1cb_0         127 KB  conda-forge
+    cyrus-sasl-2.1.28          |       hac629b4_1         205 KB  conda-forge
+    icu-78.3                   |       h33c6efd_0        12.1 MB  conda-forge
+    keyutils-1.6.3             |       hb9d3cd8_0         131 KB  conda-forge
+    krb5-1.22.2                |       ha1258a1_0         1.3 MB  conda-forge
+    libedit-3.1.20250104       | pl5321h7949ede_0         132 KB  conda-forge
+    libiconv-1.18              |       h3b78370_2         772 KB  conda-forge
+    liblzma-5.8.2              |       hb03c661_0         111 KB  conda-forge
+    libntlm-1.8                |       hb9d3cd8_0          33 KB  conda-forge
+    libpq-18.3                 |       h9abb657_0         2.7 MB  conda-forge
+    liburing-2.14              |       hb700be7_0         151 KB  conda-forge
+    libxcrypt-4.4.36           |       hd590300_1          98 KB  conda-forge
+    libxml2-2.15.2             |       he237659_0          45 KB  conda-forge
+    libxml2-16-2.15.2          |       hca6bf5a_0         544 KB  conda-forge
+    libxslt-1.1.43             |       h711ed8c_1         240 KB  conda-forge
+    lz4-c-1.10.0               |       h5888daf_1         163 KB  conda-forge
+    openldap-2.6.13            |       hbde042b_0         768 KB  conda-forge
+    openssl-3.6.2              |       h35e630c_0         3.0 MB  conda-forge
+    postgresql-18.3            |       h9d31465_0         5.5 MB  conda-forge
+    tzcode-2026b               |       h280c20c_0          70 KB  conda-forge
+    zstd-1.5.7                 |       hb78ec9c_6         587 KB  conda-forge
+    ------------------------------------------------------------
+                                           Total:        28.8 MB
+
+The following NEW packages will be INSTALLED:
+
+  cyrus-sasl         conda-forge/linux-64::cyrus-sasl-2.1.28-hac629b4_1 
+  icu                conda-forge/linux-64::icu-78.3-h33c6efd_0 
+  keyutils           conda-forge/linux-64::keyutils-1.6.3-hb9d3cd8_0 
+  krb5               conda-forge/linux-64::krb5-1.22.2-ha1258a1_0 
+  libedit            conda-forge/linux-64::libedit-3.1.20250104-pl5321h7949ede_0 
+  libiconv           conda-forge/linux-64::libiconv-1.18-h3b78370_2 
+  liblzma            conda-forge/linux-64::liblzma-5.8.2-hb03c661_0 
+  libntlm            conda-forge/linux-64::libntlm-1.8-hb9d3cd8_0 
+  libpq              conda-forge/linux-64::libpq-18.3-h9abb657_0 
+  liburing           conda-forge/linux-64::liburing-2.14-hb700be7_0 
+  libxcrypt          conda-forge/linux-64::libxcrypt-4.4.36-hd590300_1 
+  libxml2            conda-forge/linux-64::libxml2-2.15.2-he237659_0 
+  libxml2-16         conda-forge/linux-64::libxml2-16-2.15.2-hca6bf5a_0 
+  libxslt            conda-forge/linux-64::libxslt-1.1.43-h711ed8c_1 
+  lz4-c              conda-forge/linux-64::lz4-c-1.10.0-h5888daf_1 
+  openldap           conda-forge/linux-64::openldap-2.6.13-hbde042b_0 
+  postgresql         conda-forge/linux-64::postgresql-18.3-h9d31465_0 
+  tzcode             conda-forge/linux-64::tzcode-2026b-h280c20c_0 
+  zstd               conda-forge/linux-64::zstd-1.5.7-hb78ec9c_6 
+
+The following packages will be UPDATED:
+
+  ca-certificates    pkgs/main/linux-64::ca-certificates-2~ --> conda-forge/noarch::ca-certificates-2026.5.20-hbd8a1cb_0 
+  openssl               pkgs/main::openssl-3.5.6-h1b28b03_0 --> conda-forge::openssl-3.6.2-h35e630c_0 
+
+
+
+Downloading and Extracting Packages: ...working...icu-78.3             | 12.1 MB   |            |   0% 
+postgresql-18.3      | 5.5 MB    |            |   0% [A
+
+openssl-3.6.2        | 3.0 MB    |            |   0% [A[A
+
+
+libpq-18.3           | 2.7 MB    |            |   0% [A[A[A
+
+
+
+krb5-1.22.2          | 1.3 MB    |            |   0% [A[A[A[A
+
+
+
+
+libiconv-1.18        | 772 KB    |            |   0% [A[A[A[A[A
+
+
+
+
+
+openldap-2.6.13      | 768 KB    |            |   0% [A[A[A[A[A[A
+
+
+
+
+
+
+zstd-1.5.7           | 587 KB    |            |   0% [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+libxml2-16-2.15.2    | 544 KB    |            |   0% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+libxslt-1.1.43       | 240 KB    |            |   0% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+cyrus-sasl-2.1.28    | 205 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+lz4-c-1.10.0         | 163 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+liburing-2.14        | 151 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+libedit-3.1.20250104 | 132 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+keyutils-1.6.3       | 131 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ca-certificates-2026 | 127 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+liblzma-5.8.2        | 111 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libxcrypt-4.4.36     | 98 KB     |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+tzcode-2026b         | 70 KB     |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+openssl-3.6.2        | 3.0 MB    |            |   1% [A[A
+
+openssl-3.6.2        | 3.0 MB    | 2          |   2% [A[Aicu-78.3             | 12.1 MB   |            |   0% 
+
+
+libpq-18.3           | 2.7 MB    |            |   1% [A[A[A
+postgresql-18.3      | 5.5 MB    |            |   0% [Aicu-78.3             | 12.1 MB   |            |   1% 
+
+
+libpq-18.3           | 2.7 MB    | 2          |   3% [A[A[A
+
+openssl-3.6.2        | 3.0 MB    | 3          |   3% [A[A
+postgresql-18.3      | 5.5 MB    | 1          |   1% [A
+
+openssl-3.6.2        | 3.0 MB    | 5          |   5% [A[A
+
+
+libpq-18.3           | 2.7 MB    | 5          |   5% [A[A[A
+
+openssl-3.6.2        | 3.0 MB    | #          |  11% [A[Aicu-78.3             | 12.1 MB   | 1          |   1% 
+
+openssl-3.6.2        | 3.0 MB    | #3         |  13% [A[A
+
+
+libpq-18.3           | 2.7 MB    | 8          |   8% [A[A[Aicu-78.3             | 12.1 MB   | 1          |   2% 
+postgresql-18.3      | 5.5 MB    | 1          |   2% [A
+
+openssl-3.6.2        | 3.0 MB    | #6         |  16% [A[A
+
+
+libpq-18.3           | 2.7 MB    | #2         |  13% [A[A[Aicu-78.3             | 12.1 MB   | 2          |   3% 
+postgresql-18.3      | 5.5 MB    | 3          |   4% [A
+
+
+libpq-18.3           | 2.7 MB    | #8         |  18% [A[A[A
+postgresql-18.3      | 5.5 MB    | 5          |   5% [A
+
+
+libpq-18.3           | 2.7 MB    | ###6       |  37% [A[A[Aicu-78.3             | 12.1 MB   | 3          |   3% 
+
+
+libpq-18.3           | 2.7 MB    | ####6      |  47% [A[A[A
+
+openssl-3.6.2        | 3.0 MB    | #8         |  19% [A[A
+
+
+libpq-18.3           | 2.7 MB    | ######4    |  65% [A[A[A
+postgresql-18.3      | 5.5 MB    | 6          |   7% [Aicu-78.3             | 12.1 MB   | 4          |   5% 
+
+openssl-3.6.2        | 3.0 MB    | ###1       |  31% [A[A
+
+
+
+krb5-1.22.2          | 1.3 MB    | 1          |   1% [A[A[A[Aicu-78.3             | 12.1 MB   | 5          |   6% 
+
+openssl-3.6.2        | 3.0 MB    | ###5       |  36% [A[A
+
+
+libpq-18.3           | 2.7 MB    | #######7   |  77% [A[A[A
+postgresql-18.3      | 5.5 MB    | #2         |  12% [A
+
+
+
+krb5-1.22.2          | 1.3 MB    | 5          |   6% [A[A[A[A
+
+openssl-3.6.2        | 3.0 MB    | ###9       |  40% [A[Aicu-78.3             | 12.1 MB   | #1         |  12% 
+
+
+libpq-18.3           | 2.7 MB    | ########6  |  86% [A[A[A
+
+
+libpq-18.3           | 2.7 MB    | ########## | 100% [A[A[A
+postgresql-18.3      | 5.5 MB    | #3         |  14% [A
+
+
+
+krb5-1.22.2          | 1.3 MB    | 8          |   8% [A[A[A[A
+
+openssl-3.6.2        | 3.0 MB    | ####3      |  44% [A[Aicu-78.3             | 12.1 MB   | #2         |  13% 
+
+
+
+
+libiconv-1.18        | 772 KB    | 2          |   2% [A[A[A[A[A
+
+
+
+krb5-1.22.2          | 1.3 MB    | #          |  11% [A[A[A[A
+
+
+libpq-18.3           | 2.7 MB    | ########## | 100% [A[A[A
+
+
+libpq-18.3           | 2.7 MB    | ########## | 100% [A[A[A
+
+
+
+
+libiconv-1.18        | 772 KB    | ########## | 100% [A[A[A[A[A
+
+openssl-3.6.2        | 3.0 MB    | ####7      |  48% [A[A
+
+
+
+
+libiconv-1.18        | 772 KB    | ########## | 100% [A[A[A[A[Aicu-78.3             | 12.1 MB   | #5         |  15% 
+postgresql-18.3      | 5.5 MB    | ###1       |  32% [A
+
+openssl-3.6.2        | 3.0 MB    | #####7     |  57% [A[Aicu-78.3             | 12.1 MB   | #6         |  16% 
+
+
+
+
+
+openldap-2.6.13      | 768 KB    | 2          |   2% [A[A[A[A[A[A
+postgresql-18.3      | 5.5 MB    | ###9       |  39% [A
+
+
+
+krb5-1.22.2          | 1.3 MB    | #2         |  13% [A[A[A[A
+
+
+
+
+
+openldap-2.6.13      | 768 KB    | ########## | 100% [A[A[A[A[A[A
+
+openssl-3.6.2        | 3.0 MB    | ######2    |  63% [A[Aicu-78.3             | 12.1 MB   | ##7        |  27% 
+postgresql-18.3      | 5.5 MB    | ######     |  60% [A
+
+
+
+
+
+openldap-2.6.13      | 768 KB    | ########## | 100% [A[A[A[A[A[A
+
+
+
+
+
+openldap-2.6.13      | 768 KB    | ########## | 100% [A[A[A[A[A[A
+
+
+
+krb5-1.22.2          | 1.3 MB    | ###3       |  33% [A[A[A[A
+
+openssl-3.6.2        | 3.0 MB    | ######6    |  67% [A[Aicu-78.3             | 12.1 MB   | ###5       |  35% 
+
+
+
+
+
+
+zstd-1.5.7           | 587 KB    | 2          |   3% [A[A[A[A[A[A[A
+
+openssl-3.6.2        | 3.0 MB    | #######    |  71% [A[A
+
+
+
+
+
+
+zstd-1.5.7           | 587 KB    | ########## | 100% [A[A[A[A[A[A[A
+
+
+
+krb5-1.22.2          | 1.3 MB    | ####9      |  50% [A[A[A[A
+postgresql-18.3      | 5.5 MB    | #######    |  71% [A
+
+
+
+
+
+
+zstd-1.5.7           | 587 KB    | ########## | 100% [A[A[A[A[A[A[Aicu-78.3             | 12.1 MB   | ####9      |  50% 
+
+openssl-3.6.2        | 3.0 MB    | ########   |  80% [A[A
+postgresql-18.3      | 5.5 MB    | ########6  |  86% [A
+
+openssl-3.6.2        | 3.0 MB    | ########5  |  86% [A[Aicu-78.3             | 12.1 MB   | #########1 |  91% 
+
+
+
+krb5-1.22.2          | 1.3 MB    | #####7     |  58% [A[A[A[A
+
+
+
+krb5-1.22.2          | 1.3 MB    | ########## | 100% [A[A[A[A
+
+
+
+krb5-1.22.2          | 1.3 MB    | ########## | 100% [A[A[A[A
+
+
+
+
+
+
+
+libxml2-16-2.15.2    | 544 KB    | 2          |   3% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+libxml2-16-2.15.2    | 544 KB    | ########## | 100% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+libxml2-16-2.15.2    | 544 KB    | ########## | 100% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+cyrus-sasl-2.1.28    | 205 KB    | 7          |   8% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+cyrus-sasl-2.1.28    | 205 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+libxslt-1.1.43       | 240 KB    | 6          |   7% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+cyrus-sasl-2.1.28    | 205 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A
+
+openssl-3.6.2        | 3.0 MB    | #########1 |  91% [A[A
+postgresql-18.3      | 5.5 MB    | #########9 | 100% [A
+
+
+
+
+
+
+
+
+libxslt-1.1.43       | 240 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A
+postgresql-18.3      | 5.5 MB    | ########## | 100% [A
+
+openssl-3.6.2        | 3.0 MB    | ########## | 100% [A[A
+
+openssl-3.6.2        | 3.0 MB    | ########## | 100% [A[A
+
+
+
+
+
+
+
+
+libxslt-1.1.43       | 240 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+libxslt-1.1.43       | 240 KB    | ########## | 100% [A[A[A[A[A[A[A[A[Aicu-78.3             | 12.1 MB   | ########## | 100% 
+
+openssl-3.6.2        | 3.0 MB    | ########## | 100% [A[A
+postgresql-18.3      | 5.5 MB    | ########## | 100% [A
+
+
+
+
+
+
+
+
+
+
+
+
+
+keyutils-1.6.3       | 131 KB    | #2         |  12% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+lz4-c-1.10.0         | 163 KB    | 9          |  10% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+lz4-c-1.10.0         | 163 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+lz4-c-1.10.0         | 163 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+liburing-2.14        | 151 KB    | #          |  11% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+libedit-3.1.20250104 | 132 KB    | #2         |  12% [A[A[A[A[A[A[A[A[A[A[A[A[Aicu-78.3             | 12.1 MB   | ########## | 100% 
+
+
+
+
+
+
+
+
+
+
+
+
+
+keyutils-1.6.3       | 131 KB    | ###6       |  37% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+liblzma-5.8.2        | 111 KB    | #4         |  14% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ca-certificates-2026 | 127 KB    | #2         |  13% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+libedit-3.1.20250104 | 132 KB    | ######     |  61% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+libedit-3.1.20250104 | 132 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+liblzma-5.8.2        | 111 KB    | #######2   |  72% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+liburing-2.14        | 151 KB    | ####2      |  42% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+libedit-3.1.20250104 | 132 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+keyutils-1.6.3       | 131 KB    | #########7 |  98% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+keyutils-1.6.3       | 131 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+liblzma-5.8.2        | 111 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+liblzma-5.8.2        | 111 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+keyutils-1.6.3       | 131 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+liburing-2.14        | 151 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ca-certificates-2026 | 127 KB    | #######5   |  76% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ca-certificates-2026 | 127 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ca-certificates-2026 | 127 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+liburing-2.14        | 151 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+liburing-2.14        | 151 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+tzcode-2026b         | 70 KB     | ##2        |  23% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+tzcode-2026b         | 70 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+tzcode-2026b         | 70 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libxcrypt-4.4.36     | 98 KB     | #6         |  16% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libxcrypt-4.4.36     | 98 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libxcrypt-4.4.36     | 98 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A                                                     
+                                                     [A
+
+                                                     [A[A
+
+
+                                                     [A[A[A
+
+
+
+                                                     [A[A[A[A
+
+
+
+
+                                                     [A[A[A[A[A
+
+
+
+
+
+                                                     [A[A[A[A[A[A
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+[A done
+Preparing transaction: | done
+Verifying transaction: - \ | / - \ done
+Executing transaction: / - done
+PostgreSQL 安装完成
+
+=== 4. 安装 RabbitMQ 3.8.3 ===
+
+2 channel Terms of Service accepted
+Channels:
+ - defaults
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | done
+Solving environment: - \ | / done
+
+## Package Plan ##
+
+  environment location: /home/liguozhou/install/miniconda3/envs/aiida
+
+  added / updated specs:
+    - conda-forge::rabbitmq-server=3.8.3
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    cyrus-sasl-2.1.28          |       h9c0eb46_1         237 KB
+    erlang-22.3.4              |       heb540bb_0        41.3 MB  conda-forge
+    krb5-1.20.1                |       h568e23c_1         1.3 MB
+    libgfortran-ng-7.5.0       |      ha8ba4b0_17          22 KB
+    libgfortran4-7.5.0         |      ha8ba4b0_17         995 KB
+    libpq-12.15                |       h37d81fd_1         2.4 MB
+    libstdcxx-ng-15.2.0        |       hc03a8fd_8          28 KB
+    libxml2-2.9.9              |       hea5a465_1         1.6 MB
+    libxslt-1.1.29             |                4         1.3 MB  conda-forge
+    libzlib-1.2.13             |       h4ab18f5_6          60 KB  conda-forge
+    openldap-2.5.5             |       h2aa78c0_1         737 KB
+    openssl-1.1.1w             |       h7f8727e_0         3.7 MB
+    postgresql-12.15           |       h16c4e8d_1         4.2 MB
+    python-3.10.13             |       h7a1cb2a_0        26.8 MB
+    rabbitmq-server-3.8.3      |       ha770c72_1        18.7 MB  conda-forge
+    sqlite-3.51.1              |       he0a8d7e_0         1.2 MB
+    zlib-1.2.13                |       h4ab18f5_6          91 KB  conda-forge
+    zstd-1.3.7                 |       h0b5b093_0         401 KB
+    ------------------------------------------------------------
+                                           Total:       105.1 MB
+
+The following NEW packages will be INSTALLED:
+
+  erlang             conda-forge/linux-64::erlang-22.3.4-heb540bb_0 
+  gettext            pkgs/main/linux-64::gettext-0.25.1-h92eb808_0 
+  gettext-tools      pkgs/main/linux-64::gettext-tools-0.25.1-h6a67909_0 
+  libasprintf        pkgs/main/linux-64::libasprintf-0.25.1-hf2ab22a_0 
+  libasprintf-devel  pkgs/main/linux-64::libasprintf-devel-0.25.1-hf2ab22a_0 
+  libgettextpo       pkgs/main/linux-64::libgettextpo-0.25.1-hf2ab22a_0 
+  libgettextpo-devel pkgs/main/linux-64::libgettextpo-devel-0.25.1-hf2ab22a_0 
+  libgfortran-ng     pkgs/main/linux-64::libgfortran-ng-7.5.0-ha8ba4b0_17 
+  libgfortran4       pkgs/main/linux-64::libgfortran4-7.5.0-ha8ba4b0_17 
+  libstdcxx-ng       pkgs/main/linux-64::libstdcxx-ng-15.2.0-hc03a8fd_8 
+  rabbitmq-server    conda-forge/linux-64::rabbitmq-server-3.8.3-ha770c72_1 
+
+The following packages will be REMOVED:
+
+  libxml2-16-2.15.2-hca6bf5a_0
+
+The following packages will be SUPERSEDED by a higher-priority channel:
+
+  cyrus-sasl         conda-forge::cyrus-sasl-2.1.28-hac629~ --> pkgs/main::cyrus-sasl-2.1.28-h9c0eb46_1 
+  krb5                  conda-forge::krb5-1.22.2-ha1258a1_0 --> pkgs/main::krb5-1.20.1-h568e23c_1 
+  libpq                  conda-forge::libpq-18.3-h9abb657_0 --> pkgs/main::libpq-12.15-h37d81fd_1 
+  libxml2            conda-forge::libxml2-2.15.2-he237659_0 --> pkgs/main::libxml2-2.9.9-hea5a465_1 
+  libzlib               pkgs/main::libzlib-1.3.1-h47b2149_1 --> conda-forge::libzlib-1.2.13-h4ab18f5_6 
+  openldap           conda-forge::openldap-2.6.13-hbde042b~ --> pkgs/main::openldap-2.5.5-h2aa78c0_1 
+  openssl             conda-forge::openssl-3.6.2-h35e630c_0 --> pkgs/main::openssl-1.1.1w-h7f8727e_0 
+  postgresql         conda-forge::postgresql-18.3-h9d31465~ --> pkgs/main::postgresql-12.15-h16c4e8d_1 
+  zlib                     pkgs/main::zlib-1.3.1-h47b2149_1 --> conda-forge::zlib-1.2.13-h4ab18f5_6 
+  zstd                   conda-forge::zstd-1.5.7-hb78ec9c_6 --> pkgs/main::zstd-1.3.7-h0b5b093_0 
+
+The following packages will be DOWNGRADED:
+
+  libxslt                                 1.1.43-h711ed8c_1 --> 1.1.29-4 
+  python                                 3.10.20-h741d88c_0 --> 3.10.13-h7a1cb2a_0 
+  sqlite                                  3.51.2-h3e8d24a_0 --> 3.51.1-he0a8d7e_0 
+
+
+
+Downloading and Extracting Packages: ...working...erlang-22.3.4        | 41.3 MB   |            |   0% 
+python-3.10.13       | 26.8 MB   |            |   0% [A
+
+rabbitmq-server-3.8. | 18.7 MB   |            |   0% [A[A
+
+
+postgresql-12.15     | 4.2 MB    |            |   0% [A[A[A
+
+
+
+openssl-1.1.1w       | 3.7 MB    |            |   0% [A[A[A[A
+
+
+
+
+libpq-12.15          | 2.4 MB    |            |   0% [A[A[A[A[A
+
+
+
+
+
+libxml2-2.9.9        | 1.6 MB    |            |   0% [A[A[A[A[A[A
+
+
+
+
+
+
+libxslt-1.1.29       | 1.3 MB    |            |   0% [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+krb5-1.20.1          | 1.3 MB    |            |   0% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+sqlite-3.51.1        | 1.2 MB    |            |   0% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+libgfortran4-7.5.0   | 995 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+openldap-2.5.5       | 737 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+zstd-1.3.7           | 401 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+cyrus-sasl-2.1.28    | 237 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+zlib-1.2.13          | 91 KB     |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libzlib-1.2.13       | 60 KB     |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libstdcxx-ng-15.2.0  | 28 KB     |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libgfortran-ng-7.5.0 | 22 KB     |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+python-3.10.13       | 26.8 MB   |            |   0% [A
+
+rabbitmq-server-3.8. | 18.7 MB   |            |   0% [A[A
+
+
+postgresql-12.15     | 4.2 MB    |            |   0% [A[A[Aerlang-22.3.4        | 41.3 MB   |            |   0% 
+
+
+
+openssl-1.1.1w       | 3.7 MB    |            |   0% [A[A[A[A
+
+
+postgresql-12.15     | 4.2 MB    | 2          |   2% [A[A[Aerlang-22.3.4        | 41.3 MB   |            |   0% 
+
+
+
+openssl-1.1.1w       | 3.7 MB    | 2          |   2% [A[A[A[A
+
+
+postgresql-12.15     | 4.2 MB    | 3          |   4% [A[A[A
+
+rabbitmq-server-3.8. | 18.7 MB   |            |   0% [A[A
+
+
+postgresql-12.15     | 4.2 MB    | 6          |   6% [A[A[Aerlang-22.3.4        | 41.3 MB   |            |   0% 
+
+rabbitmq-server-3.8. | 18.7 MB   |            |   1% [A[A
+
+
+
+openssl-1.1.1w       | 3.7 MB    | 2          |   3% [A[A[A[Aerlang-22.3.4        | 41.3 MB   |            |   0% 
+
+
+
+openssl-1.1.1w       | 3.7 MB    | 4          |   5% [A[A[A[A
+python-3.10.13       | 26.8 MB   |            |   0% [A
+
+
+postgresql-12.15     | 4.2 MB    | 7          |   8% [A[A[A
+
+
+postgresql-12.15     | 4.2 MB    | #1         |  11% [A[A[A
+
+rabbitmq-server-3.8. | 18.7 MB   |            |   1% [A[Aerlang-22.3.4        | 41.3 MB   |            |   0% 
+
+
+postgresql-12.15     | 4.2 MB    | ##2        |  22% [A[A[A
+
+
+
+openssl-1.1.1w       | 3.7 MB    | 5          |   6% [A[A[A[Aerlang-22.3.4        | 41.3 MB   |            |   1% 
+
+
+postgresql-12.15     | 4.2 MB    | ##8        |  29% [A[A[A
+python-3.10.13       | 26.8 MB   |            |   0% [A
+
+
+postgresql-12.15     | 4.2 MB    | ###9       |  40% [A[A[A
+
+rabbitmq-server-3.8. | 18.7 MB   | 1          |   2% [A[Aerlang-22.3.4        | 41.3 MB   | 1          |   1% 
+
+
+
+openssl-1.1.1w       | 3.7 MB    | 7          |   8% [A[A[A[A
+
+rabbitmq-server-3.8. | 18.7 MB   | 2          |   2% [A[A
+python-3.10.13       | 26.8 MB   |            |   1% [A
+
+
+
+openssl-1.1.1w       | 3.7 MB    | #          |  10% [A[A[A[A
+
+rabbitmq-server-3.8. | 18.7 MB   | 2          |   3% [A[A
+
+
+postgresql-12.15     | 4.2 MB    | ####9      |  49% [A[A[A
+
+
+
+openssl-1.1.1w       | 3.7 MB    | #5         |  15% [A[A[A[A
+
+
+postgresql-12.15     | 4.2 MB    | ######9    |  70% [A[A[A
+
+
+
+openssl-1.1.1w       | 3.7 MB    | #7         |  18% [A[A[A[A
+python-3.10.13       | 26.8 MB   |            |   1% [A
+
+
+postgresql-12.15     | 4.2 MB    | ########## | 100% [A[A[A
+
+
+postgresql-12.15     | 4.2 MB    | ########## | 100% [A[A[A
+
+rabbitmq-server-3.8. | 18.7 MB   | 3          |   3% [A[Aerlang-22.3.4        | 41.3 MB   | 1          |   1% 
+
+
+postgresql-12.15     | 4.2 MB    | ########## | 100% [A[A[A
+
+rabbitmq-server-3.8. | 18.7 MB   | 3          |   4% [A[Aerlang-22.3.4        | 41.3 MB   | 2          |   2% 
+
+
+
+
+libpq-12.15          | 2.4 MB    |            |   1% [A[A[A[A[A
+python-3.10.13       | 26.8 MB   | 1          |   1% [A
+
+
+
+openssl-1.1.1w       | 3.7 MB    | #9         |  20% [A[A[A[A
+
+rabbitmq-server-3.8. | 18.7 MB   | 3          |   4% [A[A
+
+
+
+openssl-1.1.1w       | 3.7 MB    | ##4        |  24% [A[A[A[A
+python-3.10.13       | 26.8 MB   | 1          |   2% [A
+
+
+
+
+libpq-12.15          | 2.4 MB    | ########6  |  87% [A[A[A[A[A
+
+rabbitmq-server-3.8. | 18.7 MB   | 4          |   4% [A[Aerlang-22.3.4        | 41.3 MB   | 2          |   2% 
+
+rabbitmq-server-3.8. | 18.7 MB   | 5          |   6% [A[A
+
+
+
+
+libpq-12.15          | 2.4 MB    | ########## | 100% [A[A[A[A[A
+python-3.10.13       | 26.8 MB   | 2          |   2% [A
+
+
+
+openssl-1.1.1w       | 3.7 MB    | ##6        |  27% [A[A[A[Aerlang-22.3.4        | 41.3 MB   | 2          |   3% 
+python-3.10.13       | 26.8 MB   | 2          |   3% [A
+
+rabbitmq-server-3.8. | 18.7 MB   | 6          |   6% [A[A
+
+
+
+openssl-1.1.1w       | 3.7 MB    | ###2       |  33% [A[A[A[A
+
+
+
+
+
+libxml2-2.9.9        | 1.6 MB    | 1          |   1% [A[A[A[A[A[Aerlang-22.3.4        | 41.3 MB   | 2          |   3% 
+
+
+
+
+
+libxml2-2.9.9        | 1.6 MB    | ########## | 100% [A[A[A[A[A[A
+python-3.10.13       | 26.8 MB   | 3          |   3% [A
+
+
+
+
+libpq-12.15          | 2.4 MB    | ########## | 100% [A[A[A[A[A
+
+
+
+
+
+libxml2-2.9.9        | 1.6 MB    | ########## | 100% [A[A[A[A[A[A
+
+
+
+
+
+libxml2-2.9.9        | 1.6 MB    | ########## | 100% [A[A[A[A[A[Aerlang-22.3.4        | 41.3 MB   | 2          |   3% 
+
+
+
+openssl-1.1.1w       | 3.7 MB    | ###5       |  36% [A[A[A[A
+
+rabbitmq-server-3.8. | 18.7 MB   | 6          |   7% [A[Aerlang-22.3.4        | 41.3 MB   | 3          |   3% 
+python-3.10.13       | 26.8 MB   | 3          |   3% [A
+
+rabbitmq-server-3.8. | 18.7 MB   | 6          |   7% [A[Aerlang-22.3.4        | 41.3 MB   | 3          |   3% 
+
+
+
+openssl-1.1.1w       | 3.7 MB    | ###8       |  38% [A[A[A[A
+python-3.10.13       | 26.8 MB   | 3          |   4% [A
+
+rabbitmq-server-3.8. | 18.7 MB   | 7          |   8% [A[Aerlang-22.3.4        | 41.3 MB   | 3          |   4% 
+
+
+
+
+
+
+libxslt-1.1.29       | 1.3 MB    | 1          |   1% [A[A[A[A[A[A[Aerlang-22.3.4        | 41.3 MB   | 3          |   4% 
+
+rabbitmq-server-3.8. | 18.7 MB   | 8          |   8% [A[A
+python-3.10.13       | 26.8 MB   | 4          |   4% [Aerlang-22.3.4        | 41.3 MB   | 4          |   4% 
+
+
+
+openssl-1.1.1w       | 3.7 MB    | ####       |  40% [A[A[A[A
+
+
+
+
+
+
+libxslt-1.1.29       | 1.3 MB    | 2          |   2% [A[A[A[A[A[A[Aerlang-22.3.4        | 41.3 MB   | 4          |   4% 
+python-3.10.13       | 26.8 MB   | 4          |   4% [Aerlang-22.3.4        | 41.3 MB   | 4          |   5% erlang-22.3.4        | 41.3 MB   | 4          |   5% 
+python-3.10.13       | 26.8 MB   | 5          |   5% [A
+
+
+
+openssl-1.1.1w       | 3.7 MB    | #####      |  51% [A[A[A[A
+
+rabbitmq-server-3.8. | 18.7 MB   | 8          |   9% [A[Aerlang-22.3.4        | 41.3 MB   | 4          |   5% 
+
+
+
+
+
+
+libxslt-1.1.29       | 1.3 MB    | 5          |   6% [A[A[A[A[A[A[A
+python-3.10.13       | 26.8 MB   | 5          |   6% [A
+
+rabbitmq-server-3.8. | 18.7 MB   | 9          |  10% [A[A
+
+
+
+openssl-1.1.1w       | 3.7 MB    | #####5     |  55% [A[A[A[A
+
+
+
+openssl-1.1.1w       | 3.7 MB    | #####8     |  58% [A[A[A[A
+python-3.10.13       | 26.8 MB   | 6          |   6% [Aerlang-22.3.4        | 41.3 MB   | 5          |   5% 
+
+
+
+openssl-1.1.1w       | 3.7 MB    | ######4    |  65% [A[A[A[Aerlang-22.3.4        | 41.3 MB   | 5          |   6% 
+
+rabbitmq-server-3.8. | 18.7 MB   | #1         |  11% [A[A
+
+
+
+
+
+
+libxslt-1.1.29       | 1.3 MB    | #1         |  12% [A[A[A[A[A[A[Aerlang-22.3.4        | 41.3 MB   | 6          |   6% 
+
+rabbitmq-server-3.8. | 18.7 MB   | #1         |  12% [A[A
+
+rabbitmq-server-3.8. | 18.7 MB   | #2         |  12% [A[A
+
+
+
+openssl-1.1.1w       | 3.7 MB    | ######8    |  68% [A[A[A[Aerlang-22.3.4        | 41.3 MB   | 6          |   6% 
+python-3.10.13       | 26.8 MB   | 6          |   7% [A
+
+
+
+
+
+
+libxslt-1.1.29       | 1.3 MB    | #9         |  20% [A[A[A[A[A[A[A
+
+rabbitmq-server-3.8. | 18.7 MB   | #2         |  13% [A[A
+
+
+
+openssl-1.1.1w       | 3.7 MB    | #######1   |  72% [A[A[A[A
+
+
+
+openssl-1.1.1w       | 3.7 MB    | #######8   |  79% [A[A[A[A
+
+rabbitmq-server-3.8. | 18.7 MB   | #3         |  13% [A[A
+python-3.10.13       | 26.8 MB   | 7          |   7% [Aerlang-22.3.4        | 41.3 MB   | 6          |   7% 
+
+
+
+
+
+
+libxslt-1.1.29       | 1.3 MB    | ##7        |  28% [A[A[A[A[A[A[A
+
+rabbitmq-server-3.8. | 18.7 MB   | #4         |  15% [A[A
+python-3.10.13       | 26.8 MB   | 8          |   9% [Aerlang-22.3.4        | 41.3 MB   | 6          |   7% 
+
+
+
+
+
+
+libxslt-1.1.29       | 1.3 MB    | ###9       |  39% [A[A[A[A[A[A[A
+
+
+
+openssl-1.1.1w       | 3.7 MB    | ########2  |  82% [A[A[A[A
+python-3.10.13       | 26.8 MB   | 9          |   9% [A
+
+rabbitmq-server-3.8. | 18.7 MB   | #5         |  15% [A[A
+
+rabbitmq-server-3.8. | 18.7 MB   | #6         |  16% [A[A
+
+
+
+
+
+
+libxslt-1.1.29       | 1.3 MB    | ####6      |  46% [A[A[A[A[A[A[Aerlang-22.3.4        | 41.3 MB   | 7          |   8% 
+python-3.10.13       | 26.8 MB   | 9          |  10% [A
+
+
+
+
+
+
+libxslt-1.1.29       | 1.3 MB    | #####3     |  53% [A[A[A[A[A[A[Aerlang-22.3.4        | 41.3 MB   | 7          |   8% 
+python-3.10.13       | 26.8 MB   | #          |  10% [A
+
+rabbitmq-server-3.8. | 18.7 MB   | #6         |  17% [A[Aerlang-22.3.4        | 41.3 MB   | 8          |   8% 
+
+
+
+openssl-1.1.1w       | 3.7 MB    | ########5  |  86% [A[A[A[A
+
+
+
+
+
+
+libxslt-1.1.29       | 1.3 MB    | #####7     |  58% [A[A[A[A[A[A[A
+
+
+
+openssl-1.1.1w       | 3.7 MB    | ########## | 100% [A[A[A[Aerlang-22.3.4        | 41.3 MB   | 8          |   9% 
+
+
+
+openssl-1.1.1w       | 3.7 MB    | ########## | 100% [A[A[A[A
+
+
+
+
+
+
+libxslt-1.1.29       | 1.3 MB    | ######2    |  63% [A[A[A[A[A[A[A
+python-3.10.13       | 26.8 MB   | #          |  11% [A
+
+rabbitmq-server-3.8. | 18.7 MB   | #7         |  18% [A[Aerlang-22.3.4        | 41.3 MB   | 9          |   9% 
+
+
+
+
+
+
+libxslt-1.1.29       | 1.3 MB    | ######7    |  67% [A[A[A[A[A[A[A
+
+rabbitmq-server-3.8. | 18.7 MB   | #8         |  19% [A[A
+python-3.10.13       | 26.8 MB   | #1         |  11% [A
+
+
+
+
+
+
+
+krb5-1.20.1          | 1.3 MB    | 1          |   1% [A[A[A[A[A[A[A[A
+
+rabbitmq-server-3.8. | 18.7 MB   | ##         |  20% [A[Aerlang-22.3.4        | 41.3 MB   | 9          |   9% 
+
+
+
+
+
+
+
+krb5-1.20.1          | 1.3 MB    | 9          |   9% [A[A[A[A[A[A[A[Aerlang-22.3.4        | 41.3 MB   | 9          |  10% 
+python-3.10.13       | 26.8 MB   | #1         |  12% [A
+
+
+
+
+
+
+libxslt-1.1.29       | 1.3 MB    | ########9  |  89% [A[A[A[A[A[A[A
+
+rabbitmq-server-3.8. | 18.7 MB   | ##         |  21% [A[A
+
+rabbitmq-server-3.8. | 18.7 MB   | ##1        |  21% [A[A
+
+
+
+
+
+
+libxslt-1.1.29       | 1.3 MB    | #########6 |  96% [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+krb5-1.20.1          | 1.3 MB    | #4         |  14% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+libxslt-1.1.29       | 1.3 MB    | ########## | 100% [A[A[A[A[A[A[Aerlang-22.3.4        | 41.3 MB   | #          |  10% 
+python-3.10.13       | 26.8 MB   | #2         |  13% [A
+
+
+
+
+
+
+libxslt-1.1.29       | 1.3 MB    | ########## | 100% [A[A[A[A[A[A[Aerlang-22.3.4        | 41.3 MB   | #          |  11% 
+
+rabbitmq-server-3.8. | 18.7 MB   | ##1        |  22% [A[A
+
+
+
+
+
+
+
+krb5-1.20.1          | 1.3 MB    | ###1       |  32% [A[A[A[A[A[A[A[A
+python-3.10.13       | 26.8 MB   | #3         |  14% [A
+
+
+
+
+
+
+
+
+sqlite-3.51.1        | 1.2 MB    | 1          |   1% [A[A[A[A[A[A[A[A[A
+
+rabbitmq-server-3.8. | 18.7 MB   | ##2        |  22% [A[A
+python-3.10.13       | 26.8 MB   | #4         |  15% [A
+
+
+
+
+
+
+
+
+sqlite-3.51.1        | 1.2 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+krb5-1.20.1          | 1.3 MB    | ####5      |  46% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+sqlite-3.51.1        | 1.2 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A
+
+rabbitmq-server-3.8. | 18.7 MB   | ##3        |  24% [A[A
+
+
+
+
+
+
+
+krb5-1.20.1          | 1.3 MB    | #####5     |  55% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+libgfortran4-7.5.0   | 995 KB    | 1          |   2% [A[A[A[A[A[A[A[A[A[Aerlang-22.3.4        | 41.3 MB   | #1         |  11% 
+
+
+
+
+
+
+
+
+
+libgfortran4-7.5.0   | 995 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+libgfortran4-7.5.0   | 995 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A
+python-3.10.13       | 26.8 MB   | #5         |  15% [A
+
+
+
+
+
+
+
+krb5-1.20.1          | 1.3 MB    | ######6    |  67% [A[A[A[A[A[A[A[Aerlang-22.3.4        | 41.3 MB   | #2         |  12% 
+python-3.10.13       | 26.8 MB   | #5         |  16% [A
+
+
+
+
+
+
+
+
+
+
+openldap-2.5.5       | 737 KB    | 2          |   2% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+krb5-1.20.1          | 1.3 MB    | #######7   |  77% [A[A[A[A[A[A[A[A
+python-3.10.13       | 26.8 MB   | #6         |  16% [A
+
+
+
+
+
+
+
+krb5-1.20.1          | 1.3 MB    | ########## | 100% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+krb5-1.20.1          | 1.3 MB    | ########## | 100% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+krb5-1.20.1          | 1.3 MB    | ########## | 100% [A[A[A[A[A[A[A[A
+python-3.10.13       | 26.8 MB   | #6         |  17% [A
+
+
+
+
+
+
+
+
+
+
+openldap-2.5.5       | 737 KB    | #######3   |  74% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+openldap-2.5.5       | 737 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+openldap-2.5.5       | 737 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A
+python-3.10.13       | 26.8 MB   | #7         |  17% [Aerlang-22.3.4        | 41.3 MB   | #2         |  13% 
+
+
+
+
+
+
+
+
+
+
+
+
+cyrus-sasl-2.1.28    | 237 KB    | 6          |   7% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+cyrus-sasl-2.1.28    | 237 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+rabbitmq-server-3.8. | 18.7 MB   | ##4        |  25% [A[A
+
+
+
+
+
+
+
+
+
+
+
+
+cyrus-sasl-2.1.28    | 237 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+zstd-1.3.7           | 401 KB    | 3          |   4% [A[A[A[A[A[A[A[A[A[A[A[A
+python-3.10.13       | 26.8 MB   | #7         |  18% [A
+
+rabbitmq-server-3.8. | 18.7 MB   | ##7        |  28% [A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+zlib-1.2.13          | 91 KB     | #7         |  18% [A[A[A[A[A[A[A[A[A[A[A[A[A[Aerlang-22.3.4        | 41.3 MB   | #3         |  13% 
+
+rabbitmq-server-3.8. | 18.7 MB   | ##9        |  30% [A[Aerlang-22.3.4        | 41.3 MB   | #4         |  14% 
+python-3.10.13       | 26.8 MB   | #8         |  18% [A
+
+
+
+
+
+
+
+
+
+
+
+zstd-1.3.7           | 401 KB    | ###1       |  32% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+zlib-1.2.13          | 91 KB     | ###5       |  35% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+zstd-1.3.7           | 401 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+zlib-1.2.13          | 91 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+python-3.10.13       | 26.8 MB   | #9         |  19% [A
+
+rabbitmq-server-3.8. | 18.7 MB   | ###        |  31% [A[Aerlang-22.3.4        | 41.3 MB   | #4         |  15% 
+
+
+
+
+
+
+
+
+
+
+
+
+
+zlib-1.2.13          | 91 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+zstd-1.3.7           | 401 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+zstd-1.3.7           | 401 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A
+python-3.10.13       | 26.8 MB   | #9         |  20% [Aerlang-22.3.4        | 41.3 MB   | #5         |  16% 
+
+rabbitmq-server-3.8. | 18.7 MB   | ###1       |  32% [A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libstdcxx-ng-15.2.0  | 28 KB     | #####7     |  57% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libstdcxx-ng-15.2.0  | 28 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libstdcxx-ng-15.2.0  | 28 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+rabbitmq-server-3.8. | 18.7 MB   | ###2       |  32% [A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libgfortran-ng-7.5.0 | 22 KB     | #######2   |  73% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libgfortran-ng-7.5.0 | 22 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libgfortran-ng-7.5.0 | 22 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libzlib-1.2.13       | 60 KB     | ##6        |  27% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[Aerlang-22.3.4        | 41.3 MB   | #6         |  16% 
+
+rabbitmq-server-3.8. | 18.7 MB   | ###3       |  33% [A[A
+python-3.10.13       | 26.8 MB   | ##         |  20% [Aerlang-22.3.4        | 41.3 MB   | #6         |  17% 
+
+rabbitmq-server-3.8. | 18.7 MB   | ###5       |  36% [A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libzlib-1.2.13       | 60 KB     | #######9   |  80% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+python-3.10.13       | 26.8 MB   | ##1        |  22% [A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libzlib-1.2.13       | 60 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libzlib-1.2.13       | 60 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+python-3.10.13       | 26.8 MB   | ##2        |  22% [A
+
+rabbitmq-server-3.8. | 18.7 MB   | ###6       |  37% [A[Aerlang-22.3.4        | 41.3 MB   | #7         |  18% erlang-22.3.4        | 41.3 MB   | #8         |  19% 
+python-3.10.13       | 26.8 MB   | ##3        |  23% [Aerlang-22.3.4        | 41.3 MB   | #9         |  19% 
+python-3.10.13       | 26.8 MB   | ##3        |  24% [A
+
+rabbitmq-server-3.8. | 18.7 MB   | ###7       |  38% [A[A
+python-3.10.13       | 26.8 MB   | ##4        |  25% [A
+
+rabbitmq-server-3.8. | 18.7 MB   | ###9       |  39% [A[A
+
+rabbitmq-server-3.8. | 18.7 MB   | ###9       |  40% [A[A
+python-3.10.13       | 26.8 MB   | ##5        |  25% [Aerlang-22.3.4        | 41.3 MB   | #9         |  20% erlang-22.3.4        | 41.3 MB   | ##1        |  21% 
+
+rabbitmq-server-3.8. | 18.7 MB   | ####1      |  42% [A[A
+python-3.10.13       | 26.8 MB   | ##5        |  26% [A
+python-3.10.13       | 26.8 MB   | ##7        |  27% [Aerlang-22.3.4        | 41.3 MB   | ##1        |  22% 
+
+rabbitmq-server-3.8. | 18.7 MB   | ####2      |  43% [A[A
+python-3.10.13       | 26.8 MB   | ##8        |  28% [Aerlang-22.3.4        | 41.3 MB   | ##2        |  23% 
+python-3.10.13       | 26.8 MB   | ##9        |  30% [A
+
+rabbitmq-server-3.8. | 18.7 MB   | ####4      |  45% [A[A
+python-3.10.13       | 26.8 MB   | ###        |  30% [Aerlang-22.3.4        | 41.3 MB   | ##3        |  23% 
+
+rabbitmq-server-3.8. | 18.7 MB   | ####5      |  46% [A[A
+python-3.10.13       | 26.8 MB   | ###        |  31% [A
+
+rabbitmq-server-3.8. | 18.7 MB   | ####6      |  47% [A[Aerlang-22.3.4        | 41.3 MB   | ##3        |  24% 
+python-3.10.13       | 26.8 MB   | ###1       |  32% [Aerlang-22.3.4        | 41.3 MB   | ##4        |  24% 
+
+rabbitmq-server-3.8. | 18.7 MB   | ####8      |  49% [A[A
+python-3.10.13       | 26.8 MB   | ###2       |  33% [A
+
+rabbitmq-server-3.8. | 18.7 MB   | #####1     |  52% [A[A
+
+rabbitmq-server-3.8. | 18.7 MB   | #####2     |  53% [A[Aerlang-22.3.4        | 41.3 MB   | ##4        |  25% 
+python-3.10.13       | 26.8 MB   | ###3       |  33% [A
+python-3.10.13       | 26.8 MB   | ###4       |  34% [Aerlang-22.3.4        | 41.3 MB   | ##5        |  26% 
+
+rabbitmq-server-3.8. | 18.7 MB   | #####3     |  54% [A[A
+python-3.10.13       | 26.8 MB   | ###5       |  35% [A
+
+rabbitmq-server-3.8. | 18.7 MB   | #####6     |  56% [A[Aerlang-22.3.4        | 41.3 MB   | ##6        |  26% 
+python-3.10.13       | 26.8 MB   | ###5       |  36% [Aerlang-22.3.4        | 41.3 MB   | ##6        |  27% erlang-22.3.4        | 41.3 MB   | ##8        |  28% 
+python-3.10.13       | 26.8 MB   | ###6       |  36% [A
+
+rabbitmq-server-3.8. | 18.7 MB   | #####7     |  57% [A[A
+python-3.10.13       | 26.8 MB   | ###7       |  37% [A
+python-3.10.13       | 26.8 MB   | ###7       |  38% [Aerlang-22.3.4        | 41.3 MB   | ##9        |  29% 
+python-3.10.13       | 26.8 MB   | ###8       |  39% [A
+
+rabbitmq-server-3.8. | 18.7 MB   | #####9     |  60% [A[Aerlang-22.3.4        | 41.3 MB   | ##9        |  30% 
+python-3.10.13       | 26.8 MB   | ###9       |  40% [A
+
+rabbitmq-server-3.8. | 18.7 MB   | ######3    |  63% [A[A
+python-3.10.13       | 26.8 MB   | ####       |  40% [Aerlang-22.3.4        | 41.3 MB   | ###        |  31% 
+python-3.10.13       | 26.8 MB   | ####       |  41% [Aerlang-22.3.4        | 41.3 MB   | ###1       |  31% 
+
+rabbitmq-server-3.8. | 18.7 MB   | ######5    |  66% [A[A
+python-3.10.13       | 26.8 MB   | ####1      |  42% [Aerlang-22.3.4        | 41.3 MB   | ###2       |  32% 
+python-3.10.13       | 26.8 MB   | ####2      |  43% [A
+
+rabbitmq-server-3.8. | 18.7 MB   | ######7    |  68% [A[A
+python-3.10.13       | 26.8 MB   | ####3      |  43% [Aerlang-22.3.4        | 41.3 MB   | ###2       |  33% 
+python-3.10.13       | 26.8 MB   | ####4      |  44% [A
+python-3.10.13       | 26.8 MB   | ####5      |  45% [A
+
+rabbitmq-server-3.8. | 18.7 MB   | ######9    |  70% [A[Aerlang-22.3.4        | 41.3 MB   | ###3       |  34% 
+python-3.10.13       | 26.8 MB   | ####7      |  47% [Aerlang-22.3.4        | 41.3 MB   | ###5       |  35% 
+
+rabbitmq-server-3.8. | 18.7 MB   | #######4   |  74% [A[Aerlang-22.3.4        | 41.3 MB   | ###5       |  36% 
+
+rabbitmq-server-3.8. | 18.7 MB   | #######6   |  76% [A[A
+python-3.10.13       | 26.8 MB   | ####8      |  48% [Aerlang-22.3.4        | 41.3 MB   | ###6       |  37% 
+
+rabbitmq-server-3.8. | 18.7 MB   | #######7   |  78% [A[A
+python-3.10.13       | 26.8 MB   | ####9      |  50% [Aerlang-22.3.4        | 41.3 MB   | ###7       |  38% 
+
+rabbitmq-server-3.8. | 18.7 MB   | #######8   |  79% [A[Aerlang-22.3.4        | 41.3 MB   | ###8       |  38% 
+python-3.10.13       | 26.8 MB   | #####      |  50% [A
+
+rabbitmq-server-3.8. | 18.7 MB   | ########   |  80% [A[A
+python-3.10.13       | 26.8 MB   | #####1     |  52% [Aerlang-22.3.4        | 41.3 MB   | ###8       |  39% 
+
+rabbitmq-server-3.8. | 18.7 MB   | ########3  |  83% [A[A
+python-3.10.13       | 26.8 MB   | #####3     |  54% [Aerlang-22.3.4        | 41.3 MB   | ####       |  40% 
+python-3.10.13       | 26.8 MB   | #####4     |  55% [Aerlang-22.3.4        | 41.3 MB   | ####       |  41% 
+
+rabbitmq-server-3.8. | 18.7 MB   | ########5  |  85% [A[Aerlang-22.3.4        | 41.3 MB   | ####1      |  41% erlang-22.3.4        | 41.3 MB   | ####1      |  42% 
+python-3.10.13       | 26.8 MB   | #####5     |  56% [A
+
+rabbitmq-server-3.8. | 18.7 MB   | ########7  |  88% [A[A
+
+rabbitmq-server-3.8. | 18.7 MB   | ########9  |  90% [A[A
+
+rabbitmq-server-3.8. | 18.7 MB   | #########  |  91% [A[Aerlang-22.3.4        | 41.3 MB   | ####3      |  43% erlang-22.3.4        | 41.3 MB   | ####5      |  45% 
+
+rabbitmq-server-3.8. | 18.7 MB   | #########1 |  92% [A[A
+python-3.10.13       | 26.8 MB   | #####7     |  58% [A
+
+rabbitmq-server-3.8. | 18.7 MB   | #########3 |  93% [A[A
+
+rabbitmq-server-3.8. | 18.7 MB   | #########4 |  95% [A[A
+python-3.10.13       | 26.8 MB   | ######     |  61% [Aerlang-22.3.4        | 41.3 MB   | ####6      |  46% 
+python-3.10.13       | 26.8 MB   | ######1    |  62% [A
+
+rabbitmq-server-3.8. | 18.7 MB   | #########7 |  97% [A[A
+python-3.10.13       | 26.8 MB   | ######2    |  63% [A
+
+rabbitmq-server-3.8. | 18.7 MB   | #########9 |  99% [A[Aerlang-22.3.4        | 41.3 MB   | ####6      |  47% 
+python-3.10.13       | 26.8 MB   | ######3    |  64% [A
+
+rabbitmq-server-3.8. | 18.7 MB   | ########## | 100% [A[A
+python-3.10.13       | 26.8 MB   | ######7    |  67% [Aerlang-22.3.4        | 41.3 MB   | ####8      |  49% erlang-22.3.4        | 41.3 MB   | ####9      |  50% 
+python-3.10.13       | 26.8 MB   | ######8    |  69% [Aerlang-22.3.4        | 41.3 MB   | #####      |  50% 
+python-3.10.13       | 26.8 MB   | #######    |  70% [A
+python-3.10.13       | 26.8 MB   | #######1   |  72% [Aerlang-22.3.4        | 41.3 MB   | #####2     |  52% 
+python-3.10.13       | 26.8 MB   | #######2   |  73% [Aerlang-22.3.4        | 41.3 MB   | #####4     |  54% erlang-22.3.4        | 41.3 MB   | #####5     |  55% erlang-22.3.4        | 41.3 MB   | #####5     |  56% 
+python-3.10.13       | 26.8 MB   | #######4   |  74% [Aerlang-22.3.4        | 41.3 MB   | #####6     |  57% 
+
+rabbitmq-server-3.8. | 18.7 MB   | ########## | 100% [A[Aerlang-22.3.4        | 41.3 MB   | #####7     |  58% 
+python-3.10.13       | 26.8 MB   | #######6   |  77% [A
+python-3.10.13       | 26.8 MB   | ########   |  80% [Aerlang-22.3.4        | 41.3 MB   | #####8     |  58% erlang-22.3.4        | 41.3 MB   | ######     |  60% 
+python-3.10.13       | 26.8 MB   | ########1  |  81% [Aerlang-22.3.4        | 41.3 MB   | ######1    |  61% 
+python-3.10.13       | 26.8 MB   | ########4  |  84% [Aerlang-22.3.4        | 41.3 MB   | ######2    |  62% 
+python-3.10.13       | 26.8 MB   | ########6  |  86% [A
+python-3.10.13       | 26.8 MB   | ########8  |  89% [Aerlang-22.3.4        | 41.3 MB   | ######2    |  63% 
+python-3.10.13       | 26.8 MB   | #########  |  90% [Aerlang-22.3.4        | 41.3 MB   | ######6    |  66% 
+python-3.10.13       | 26.8 MB   | #########1 |  92% [Aerlang-22.3.4        | 41.3 MB   | ######7    |  68% 
+python-3.10.13       | 26.8 MB   | #########2 |  93% [Aerlang-22.3.4        | 41.3 MB   | #######    |  70% 
+python-3.10.13       | 26.8 MB   | #########5 |  96% [A
+python-3.10.13       | 26.8 MB   | #########6 |  97% [A
+python-3.10.13       | 26.8 MB   | #########8 |  98% [Aerlang-22.3.4        | 41.3 MB   | #######1   |  71% 
+python-3.10.13       | 26.8 MB   | ########## | 100% [Aerlang-22.3.4        | 41.3 MB   | #######1   |  72% erlang-22.3.4        | 41.3 MB   | #######3   |  74% 
+python-3.10.13       | 26.8 MB   | ########## | 100% [A
+python-3.10.13       | 26.8 MB   | ########## | 100% [Aerlang-22.3.4        | 41.3 MB   | #######4   |  74% erlang-22.3.4        | 41.3 MB   | #######4   |  75% erlang-22.3.4        | 41.3 MB   | #######6   |  77% erlang-22.3.4        | 41.3 MB   | #######7   |  77% erlang-22.3.4        | 41.3 MB   | #######9   |  80% erlang-22.3.4        | 41.3 MB   | ########3  |  83% erlang-22.3.4        | 41.3 MB   | ########4  |  84% erlang-22.3.4        | 41.3 MB   | ########6  |  86% erlang-22.3.4        | 41.3 MB   | ########7  |  88% erlang-22.3.4        | 41.3 MB   | ########9  |  89% erlang-22.3.4        | 41.3 MB   | #########1 |  92% erlang-22.3.4        | 41.3 MB   | #########3 |  93% erlang-22.3.4        | 41.3 MB   | #########4 |  95% erlang-22.3.4        | 41.3 MB   | #########7 |  97% erlang-22.3.4        | 41.3 MB   | #########8 |  99% erlang-22.3.4        | 41.3 MB   | ########## | 100% erlang-22.3.4        | 41.3 MB   | ########## | 100% erlang-22.3.4        | 41.3 MB   | ########## | 100%                                                      
+                                                     [A
+
+                                                     [A[A
+
+
+                                                     [A[A[A
+
+
+
+                                                     [A[A[A[A
+
+
+
+
+                                                     [A[A[A[A[A
+
+
+
+
+
+                                                     [A[A[A[A[A[A
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A done
+Preparing transaction: \ | / done
+Verifying transaction: \ | / - \ | / - \ | / - \ done
+Executing transaction: / - \ | / - done
+RabbitMQ 安装完成
+
+=== 5. 初始化 PostgreSQL 数据库目录 ===
+
+正在执行 initdb -D /home/liguozhou/data/postgresql/mylocal_db
+The files belonging to this database system will be owned by user "liguozhou".
+This user must also own the server process.
+
+The database cluster will be initialized with locale "en_US.UTF-8".
+The default database encoding has accordingly been set to "UTF8".
+The default text search configuration will be set to "english".
+
+Data page checksums are disabled.
+
+fixing permissions on existing directory /home/liguozhou/data/postgresql/mylocal_db ... ok
+creating subdirectories ... ok
+selecting dynamic shared memory implementation ... posix
+selecting default max_connections ... 100
+selecting default shared_buffers ... 128MB
+selecting default time zone ... Etc/UTC
+creating configuration files ... ok
+running bootstrap script ... ok
+performing post-bootstrap initialization ... ok
+syncing data to disk ... ok
+
+initdb: warning: enabling "trust" authentication for local connections
+You can change this by editing pg_hba.conf or using the option -A, or
+--auth-local and --auth-host, the next time you run initdb.
+
+Success. You can now start the database server using:
+
+    pg_ctl -D /home/liguozhou/data/postgresql/mylocal_db -l logfile start
+
+PostgreSQL 初始化完成
+
+=== 6. 启动 PostgreSQL 服务 (端口 5432) ===
+
+waiting for server to start.... done
+server started
+PostgreSQL 启动成功
+
+=== 7. 创建数据库用户 aiida_user 和数据库 aiida_db ===
+
+创建用户 aiida_user
+CREATE ROLE
+ALTER ROLE
+创建数据库 aiida_db
+CREATE DATABASE
+ALTER DATABASE
+GRANT
+数据库配置完成
+
+=== 9. 配置 AiiDA Profile: aiida_profile ===
+
+=== 当前 Profile 列表 ===
+/home/liguozhou/install/miniconda3/envs/aiida/lib/python3.10/site-packages/aiida/manage/configuration/settings.py:110: UserWarning: Creating AiiDA configuration folder `/home/liguozhou/.aiida`.
+  warnings.warn(f'Creating AiiDA configuration folder `{path}`.')
+Report: configuration folder: /home/liguozhou/.aiida
+Warning: no profiles configured: Run `verdi presto` to automatically setup a profile using all defaults or use `verdi profile setup` for more control.
+
+=== 检查数据库 aiida_db ===
+=== 创建 Profile aiida_profile ===
+执行命令: verdi profile setup core.psql_dos -n             --profile-name aiida_profile             --set-as-default             --email liguozhou24@gscaep.ac.cn             --first-name Guozhou             --last-name Li             --institution "GSCAEP"             --use-rabbitmq             --database-username aiida_user             --database-password 123             --database-name aiida_db             --database-engine postgresql_psycopg             --database-hostname 127.0.0.1             --database-port 5432             --repository-uri "file:///home/liguozhou/data/aiida_profile/profile"
+error when creating transport: <AMQPConnectionError: (111, "Connect call failed ('127.0.0.1', 5672)")>
+Warning: RabbitMQ server not reachable: Failed to connect with following connection parameters: {'protocol': 'amqp', 'username': 'guest', 'password': 'guest', 'host': '127.0.0.1', 'port': 5672, 'virtual_host': ''}.
+Report: RabbitMQ can be reconfigured with `verdi profile configure-rabbitmq`.
+Report: Initialising the storage backend.
+Report: initialising empty storage schema
+Report: Migrating to the head of the main branch
+Report: Storage initialisation completed.
+Success: Created new profile `aiida_profile`.
+Success: aiida_profile set as default profile
+
+Profile 'aiida_profile' 创建成功
+
+=== 配置 RabbitMQ Broker ===
+error when creating transport: <AMQPConnectionError: (111, "Connect call failed ('127.0.0.1', 5672)")>
+Warning: Unable to connect to RabbitMQ server: Failed to connect with following connection parameters: {'protocol': 'amqp', 'username': 'guest', 'password': 'guest', 'host': '127.0.0.1', 'port': 5672, 'virtual_host': ''}
+Do you want to continue with the provided configuration? [y/N]: Success: RabbitMQ configuration for `aiida_profile` updated to: {'broker_protocol': 'amqp', 'broker_username': 'guest', 'broker_password': 'guest', 'broker_host': '127.0.0.1', 'broker_port': 5672, 'broker_virtual_host': ''}
+
+=== 最终 Profile 状态 ===
+Report: configuration folder: /home/liguozhou/.aiida
+* aiida_profile
+
+=== AiiDA 服务状态 ===
+ ✔ version:     AiiDA v2.8.0
+ ✔ config:      /home/liguozhou/.aiida
+ ✔ profile:     aiida_profile
+ ✔ storage:     Storage for 'aiida_profile' [open] @ postgresql+psycopg://aiida_user:***@127.0.0.1:5432/aiida_db / DiskObjectStoreRepository: 510c84536186443d887cb0be87763672 | /home/liguozhou/data/aiida_profile/profile/container
+error when creating transport: <AMQPConnectionError: (111, "Connect call failed ('127.0.0.1', 5672)")>
+error when creating transport: <AMQPConnectionError: (111, "Connect call failed ('127.0.0.1', 5672)")>
+ ✘ broker:      Unable to connect to broker: RabbitMQ @ amqp://guest:guest@127.0.0.1:5672?heartbeat=600 <Connection failed>
+Error: AMQPConnectionError: [Errno 111] Connect call failed ('127.0.0.1', 5672)
+ ⏺ daemon:      The daemon is not running.

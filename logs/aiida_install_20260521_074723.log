@@ -1,0 +1,24 @@
+================================================================================
+AiiDA 环境部署日志 - 2026-05-21 07:47:23
+配置文件: /home/liguozhou/script/aiida/aiida-ubuntu-quickstart/config.env
+日志文件: /home/liguozhou/script/aiida/aiida-ubuntu-quickstart/logs/aiida_install_20260521_074723.log
+================================================================================
+
+Conda 已初始化，当前 base 环境: base
+
+=== 1. 创建 Conda 环境: aiida_test (Python 3.10) ===
+
+
+CondaToSNonInteractiveError: Terms of Service have not been accepted for the following channels. Please accept or remove them before proceeding:
+    - https://repo.anaconda.com/pkgs/main
+    - https://repo.anaconda.com/pkgs/r
+
+To accept these channels' Terms of Service, run the following commands:
+    conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main
+    conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r
+
+For information on safely removing channels from your conda configuration,
+please see the official documentation:
+
+    https://www.anaconda.com/docs/tools/working-with-conda/channels
+
